@@ -710,23 +710,37 @@ function moveItem(type, index, direction) {
 async function handleUpload(event) {
   const input = event.currentTarget;
   const file = input.files?.[0];
-  if (!file) return;
+  if (!file || input.disabled) return;
   if (state.demo) {
     showNotice("Supabase is required for uploads. Add config.js, then sign in with an authorized account.", "error");
     return;
   }
   const preview = document.querySelector(`[data-preview-for='${input.dataset.uploadPath}']`);
   const previous = getAtPath(state.content, input.dataset.uploadPath);
-  if (preview) preview.insertAdjacentHTML("beforeend", '<span class="helper">Uploading...</span>');
+  const status = document.createElement("span");
+  status.className = "helper";
+  status.dataset.uploadStatus = "";
+  status.setAttribute("role", "status");
+  status.textContent = "Uploading...";
+  const field = input.closest(".upload-field");
+  field?.querySelectorAll("[data-upload-status]").forEach((item) => item.remove());
+  (field || preview)?.append(status);
+  input.disabled = true;
   try {
     const url = await uploadFile(file, input.dataset.uploadFolder, state.token);
     setAtPath(state.content, input.dataset.uploadPath, url);
     markDirty();
-    showNotice("Upload complete. Save changes to attach the uploaded URL to the CMS record.", "success");
     renderAdmin();
+    showNotice("Upload complete. Save changes to attach the uploaded URL to the CMS record.", "success");
   } catch (error) {
     setAtPath(state.content, input.dataset.uploadPath, previous);
+    status.textContent = error.message;
+    status.setAttribute("role", "alert");
     showNotice(error.message, "error");
+  } finally {
+    input.disabled = false;
+    input.value = "";
+    if (status.textContent === "Uploading...") status.remove();
   }
 }
 

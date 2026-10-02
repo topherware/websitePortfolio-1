@@ -16,7 +16,9 @@ No dependency installation is required. Run `npm run check`, `npm test`, and `np
 2. Create a public Storage bucket named `portfolio`.
 3. Copy `config.example.js` to `config.js` and add the project URL and anon key.
 4. Configure invitation-only access and add the invited buyer's UUID to `admin_users` using the instructions below.
-5. Insert the existing CMS content as the `site` row. The included SQL uses `on conflict do nothing`, so existing edited data is not overwritten.
+5. Run `supabase-seed.sql` in SQL Editor to create the initial `site` content record. It uses `on conflict do nothing`, so existing edited data is not overwritten. If template content in `cms.js` changes, regenerate the seed with `npm run seed:generate` first.
+
+If every save reports a conflict on a new deployment, check that `portfolio_content` contains the `site` row. An UPDATE cannot create a missing row. Run `supabase-seed.sql` in the buyer's project; preserve unsaved edits before reloading the editor. The updated editor distinguishes missing/inaccessible content from revision conflicts and denied updates.
 
 The browser uses only the anon key. Authentication, admin authorization, content updates, and uploads remain protected by Row Level Security. Uploaded objects are never automatically deleted because URLs may be shared by multiple records.
 

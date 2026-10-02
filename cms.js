@@ -248,12 +248,15 @@ function headers(token) {
   };
 }
 
+const missingSiteMessage = "Portfolio record 'site' is missing or inaccessible. Ask the seller to run supabase-seed.sql and verify administrator access. Your edits have not been saved.";
+
 export async function loadContentRecord(token = "") {
   if (!isSupabaseConfigured()) return { content: normalizeContent(structuredClone(demoContent)), updatedAt: "" };
   const endpoint = token ? "portfolio_content" : "portfolio_public_content";
   const response = await fetch(`${config.supabaseUrl}/rest/v1/${endpoint}?id=eq.site&select=content,updated_at`, { headers: headers(token) });
   if (!response.ok) throw new Error(`CMS load failed (${response.status})`);
   const rows = await response.json();
+  if (token && !rows.length) throw new Error(missingSiteMessage);
   return {
     content: normalizeContent(rows[0]?.content || structuredClone(demoContent)),
     updatedAt: rows[0]?.updated_at || "",
@@ -290,7 +293,17 @@ export async function saveContent(content, token, previousUpdatedAt = "") {
   });
   const rows = await response.json();
   if (!response.ok) throw new Error(rows.message || "Save failed");
-  if (!rows.length) throw new Error("Save conflict: content changed in another session. Reload before saving again.");
+  if (!rows.length) {
+    // An empty PATCH can mean a missing/hidden row, a denied update, or a stale revision.
+    const check = await fetch(`${config.supabaseUrl}/rest/v1/portfolio_content?id=eq.site&select=updated_at`, { headers: headers(token) });
+    if (!check.ok) throw new Error("Save could not be verified. Keep a copy of your edits and check your session and administrator access.");
+    const current = await check.json();
+    if (!current.length) throw new Error(missingSiteMessage);
+    if (previousUpdatedAt && current[0].updated_at !== previousUpdatedAt) {
+      throw new Error("Save conflict: content changed in another session. Copy your unsaved edits before reloading.");
+    }
+    throw new Error("Save was not permitted. Ask the seller to check admin_users and the portfolio_content update policy. Your edits have not been saved.");
+  }
   return rows[0];
 }
 
@@ -301,13 +314,31 @@ export async function uploadFile(file, folder, token) {
   if (isCv ? file.type !== "application/pdf" : !allowedImages.includes(file.type)) throw new Error(isCv ? "CV must be a PDF." : "Use JPG, PNG, WebP, or GIF.");
   const extension = file.name.split(".").pop()?.toLowerCase() || "bin";
   const path = `${folder}/${crypto.randomUUID()}.${extension}`;
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 60000);
+  try {
   const response = await fetch(`${config.supabaseUrl}/storage/v1/object/${config.storageBucket || "portfolio"}/${path}`, {
     method: "POST",
     headers: { apikey: config.supabaseAnonKey, Authorization: `Bearer ${token}`, "Content-Type": file.type, "x-upsert": "false" },
     body: file,
+    signal: controller.signal,
   });
-  if (!response.ok) throw new Error((await response.json()).message || "Upload failed");
+  if (!response.ok) {
+    const result = await response.json().catch(() => ({}));
+    const message = result.message || result.error || "";
+    if (/bucket.*not found/i.test(message)) throw new Error(`Storage bucket '${config.storageBucket || "portfolio"}' was not found. Ask the seller to create the bucket and check Storage settings.`);
+    if (response.status === 401 || /jwt|token.*expired/i.test(message)) throw new Error("Your session has expired or is invalid. Copy your unsaved edits, sign in again, and retry the upload.");
+    if (response.status === 403 || /row.level security|unauthorized/i.test(message)) throw new Error("Upload permission denied. Ask the seller to check admin_users and the Storage INSERT policy.");
+    throw new Error(message || `Upload failed (${response.status}). Please try again.`);
+  }
   return `${config.supabaseUrl}/storage/v1/object/public/${config.storageBucket || "portfolio"}/${path}`;
+  } catch (error) {
+    if (controller.signal.aborted) throw new Error("Upload timed out after 60 seconds. Check your connection and try again with a smaller file.");
+    if (error instanceof TypeError) throw new Error("Unable to connect to Storage. Check your connection and try again.");
+    throw error;
+  } finally {
+    clearTimeout(timeout);
+  }
 }
 
 export { cleanUrl, demoContent, normalizeContent };
