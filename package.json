@@ -1,0 +1,25 @@
+{
+  "name": "orange-product-designer-portfolio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "serve": "python -m http.server 4173",
+    "check": "node --check app.js && node --check cms.js && node --check admin/admin.js && node --check admin/auth.js && node --check tests/browser-qa.mjs && node --check scripts/build.mjs",
+    "test": "node tests/smoke.test.mjs && node tests/auth.test.mjs",
+    "test:browser": "node tests/browser-qa.mjs",
+    "test:auth-browser": "node tests/auth-browser.mjs",
+    "build": "node scripts/build.mjs"
+  },
+  "description": "A responsive, CMS-driven portfolio implementation based on the supplied Figma screenshots. The public site and `/admin/` share one Supabase JSON content record, while a filtered public view prevents draft projects, certificates, and experience entries from being exposed.",
+  "version": "1.0.0",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "playwright": "^1.63.0"
+  }
+}

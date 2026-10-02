@@ -1,0 +1,70 @@
+[
+  {
+    "name": "desktop-wide-1920",
+    "width": 1920,
+    "height": 1000,
+    "overflow": 0,
+    "footerCenterDelta": 0.0078125,
+    "headerGapRatio": 1.0000975800156129,
+    "consoleErrors": [],
+    "pageErrors": []
+  },
+  {
+    "name": "desktop-1440",
+    "width": 1440,
+    "height": 1000,
+    "overflow": 0,
+    "footerCenterDelta": 0.0078125,
+    "headerGapRatio": 1.0000975800156129,
+    "consoleErrors": [],
+    "pageErrors": []
+  },
+  {
+    "name": "laptop-1024",
+    "width": 1024,
+    "height": 900,
+    "overflow": 0,
+    "footerCenterDelta": 0.0078125,
+    "headerGapRatio": 0,
+    "consoleErrors": [],
+    "pageErrors": []
+  },
+  {
+    "name": "tablet-768",
+    "width": 768,
+    "height": 1024,
+    "overflow": 0,
+    "footerCenterDelta": 0.0078125,
+    "headerGapRatio": 0,
+    "consoleErrors": [],
+    "pageErrors": []
+  },
+  {
+    "name": "mobile-390",
+    "width": 390,
+    "height": 844,
+    "overflow": 0,
+    "footerCenterDelta": 0.0078125,
+    "headerGapRatio": 0,
+    "consoleErrors": [],
+    "pageErrors": []
+  },
+  {
+    "name": "mobile-320",
+    "width": 320,
+    "height": 720,
+    "overflow": 0,
+    "footerCenterDelta": 0.0078125,
+    "headerGapRatio": 0,
+    "consoleErrors": [],
+    "pageErrors": []
+  },
+  {
+    "name": "admin-desktop",
+    "pageErrors": []
+  },
+  {
+    "name": "admin-mobile",
+    "overflow": 0
+  }
+]
