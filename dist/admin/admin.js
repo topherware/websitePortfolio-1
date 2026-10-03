@@ -1,5 +1,6 @@
 import { demoContent, isSupabaseConfigured, loadContentRecord, login, normalizeContent, saveContent, uploadFile } from "../cms.js";
 import { consumeAuthLink, verifyAdminToken, setAccountPassword, requestPasswordReset } from "./auth.js";
+import { logoUrl, updateFavicon } from "../branding.js";
 
 const root = document.querySelector("#admin-app");
 const state = {
@@ -263,6 +264,11 @@ function renderAccountForm(link = null, user = null) {
 async function initializeAccount() {
   try {
     const link = consumeAuthLink();
+    if (isSupabaseConfigured()) {
+      loadContentRecord().then((record) => {
+        if (!state.content) updateFavicon(record.content.site?.logoUrl);
+      }).catch(() => { /* Keep the default icon if public content is unavailable. */ });
+    }
     if (!link) return renderLogin();
     root.innerHTML = '<main class="admin-login"><p role="status">Verifying your link...</p></main>';
     const user = await verifyAdminToken(link.token);
@@ -293,6 +299,31 @@ function aboutPanel() {
   </div></div></section>`;
 }
 
+function categoryMoveButtons(key, category, index) {
+  if (category === "All") return "";
+  const categories = state.content[key] || [];
+  return [-1, 1].map((direction) => {
+    const next = index + direction;
+    const disabled = next < 0 || next >= categories.length || categories[next] === "All";
+    const label = `Move ${category} ${direction < 0 ? "left" : "right"}`;
+    return `<button type="button" data-move-category="${key}" data-category="${safe(category)}" data-direction="${direction}" aria-label="${safe(label)}" title="${safe(label)}" ${disabled ? "disabled" : ""}>${direction < 0 ? "&#8592;" : "&#8594;"}</button>`;
+  }).join("");
+}
+
+function moveCategory(key, category, direction) {
+  if (!["projectCategories", "experienceCategories"].includes(key) || ![-1, 1].includes(direction)) return;
+  const categories = state.content[key];
+  const index = categories.indexOf(category);
+  const next = index + direction;
+  if (index < 0 || category === "All" || next < 0 || next >= categories.length || categories[next] === "All") return;
+  [categories[index], categories[next]] = [categories[next], categories[index]];
+  renderAdmin();
+  markDirty();
+  const buttons = [...document.querySelectorAll("[data-move-category]")];
+  const matching = buttons.filter(button => button.dataset.moveCategory === key && button.dataset.category === category);
+  (matching.find(button => Number(button.dataset.direction) === direction && !button.disabled) || matching.find(button => !button.disabled))?.focus();
+}
+
 function listPanel(type, title, subtitle) {
   const source = type === "experience" ? state.content.experiences : state.content[type];
   const query = state.search[type].toLowerCase();
@@ -313,7 +344,7 @@ function listPanel(type, title, subtitle) {
     </article>`).join("");
   const categoryKey = type === "projects" ? "projectCategories" : type === "experience" ? "experienceCategories" : "";
   const categoryScope = categoryKey === "projectCategories" ? "project" : "experience";
-  const categoryEditor = categoryKey ? `<div class="category-manager"><div class="category-heading"><div><h3>Filter categories</h3><p>Add, rename, or remove the filters shown on the portfolio.</p></div><button class="small-button" type="button" data-add-category="${categoryKey}">Add category</button></div><div class="category-list">${(state.content[categoryKey] || []).map((category) => `<div class="category-chip"><span>${safe(category)}${bilingualEnabled() && state.content.categoryTranslations?.[categoryScope]?.[category] ? ` <small>/ ${safe(state.content.categoryTranslations[categoryScope][category])}</small>` : ""}</span>${category === "All" ? '<small>Required</small>' : `<button type="button" data-edit-category="${categoryKey}" data-category="${safe(category)}">Edit</button><button type="button" data-delete-category="${categoryKey}" data-category="${safe(category)}">Delete</button>`}</div>`).join("")}</div></div>` : "";
+  const categoryEditor = categoryKey ? `<div class="category-manager"><div class="category-heading"><div><h3>Filter categories</h3><p>Add, rename, reorder, or remove filters. Use the arrows to change their order, then save changes.</p></div><button class="small-button" type="button" data-add-category="${categoryKey}">Add category</button></div><div class="category-list">${(state.content[categoryKey] || []).map((category, index) => `<div class="category-chip"><span>${safe(category)}${bilingualEnabled() && state.content.categoryTranslations?.[categoryScope]?.[category] ? ` <small>/ ${safe(state.content.categoryTranslations[categoryScope][category])}</small>` : ""}</span>${category === "All" ? '<small>Required</small>' : `${categoryMoveButtons(categoryKey, category, index)}<button type="button" data-edit-category="${categoryKey}" data-category="${safe(category)}">Edit</button><button type="button" data-delete-category="${categoryKey}" data-category="${safe(category)}">Delete</button>`}</div>`).join("")}</div></div>` : "";
   const experiencePhoto = type === "experience" ? `<div class="panel-card"><h2>Experience section photo</h2>${uploadField("Experience photo", "experiencePhotoUrl", "experience", "Recommended size: 1200 x 1400 px (6:7). JPG, PNG, WebP, or GIF; maximum 10 MB.")}</div>` : "";
   const toolbarHelper = canMove ? "Ordering is disabled while search is active." : "The list uses the same date order as the public timeline.";
   return `<section class="admin-panel${state.active === type ? " active" : ""}" data-panel="${type}">${experiencePhoto}<div class="panel-card"><div class="panel-card-heading"><div><h2>${safe(title)}</h2><p>${safe(subtitle)}</p></div><button class="button" type="button" data-add="${type}">Add new</button></div>${categoryEditor}<div class="editor-toolbar"><input class="search-input" type="search" placeholder="Search ${safe(title.toLowerCase())}" value="${safe(state.search[type])}" data-search="${type}" /><span class="helper">${toolbarHelper}</span></div><div class="item-list">${cards || '<div class="empty-state">No matching items.</div>'}</div></div></section>`;
@@ -342,7 +373,7 @@ function settingsPanel() {
     ${translatableField("Scrolling message", "site.runningText", { type: "textarea", wide: true })}
   </div></div><div class="panel-card"><h2>Header & Footer</h2><div class="field-grid">
     ${field("Website name", "site.name")}${translatableField("Browser description", "site.description")}${translatableField("Call-to-action label", "site.ctaLabel")}${field("Call-to-action destination", "site.ctaHref")}${translatableField("Footer note", "site.footerNote", { wide: true })}
-    ${uploadField("Customer logo", "site.logoUrl", "logos", "Recommended size: 800 x 240 px. Recommended aspect ratio: 10:3. Use a transparent PNG or WebP image. Maximum file size: 10 MB. Square logos are also supported and remain proportional.")}
+    ${uploadField("Customer logo", "site.logoUrl", "logos", "Use a square logo (1:1). Recommended size: 512 x 512 px. PNG or WebP with a transparent background is recommended. Maximum file size: 10 MB. This logo is also used in the admin panel and browser tab.")}
   </div></div><div class="panel-card"><h2>Navigation labels</h2><div class="field-grid">${navFields}</div></div></section>`;
 }
 
@@ -380,11 +411,13 @@ function openConfirmModal(options) {
 }
 
 function renderAdmin() {
+  const customerLogo = logoUrl(state.content.site?.logoUrl);
+  updateFavicon(customerLogo);
   const menus = [
     ["home", "Home"], ["about", "About Me"], ["projects", "Projects"], ["certificates", "Certificates"], ["experience", "Experience"], ["testimonials", "What They Say"], ["contact", "Contact"], ["settings", "Header & Footer"],
   ];
   root.innerHTML = `<div class="admin-shell">
-    <aside class="admin-sidebar" id="admin-sidebar"><div class="admin-brand"><span>P</span><span>Portfolio CMS</span></div><nav class="admin-menu">${menus.map(([key, label]) => `<button class="${state.active === key ? "active" : ""}" type="button" data-tab="${key}">${label}</button>`).join("")}</nav><div class="sidebar-footer"><a class="sidebar-action" href="../index.html" target="_blank">View portfolio</a><button class="sidebar-action" id="logout" type="button">Sign out</button></div></aside>
+    <aside class="admin-sidebar" id="admin-sidebar"><div class="admin-brand">${customerLogo ? `<img class="admin-customer-logo" src="${safe(customerLogo)}" alt="Customer logo" /><span class="admin-brand-fallback" hidden>P</span>` : '<span class="admin-brand-fallback">P</span>'}<span>Portfolio CMS</span></div><nav class="admin-menu">${menus.map(([key, label]) => `<button class="${state.active === key ? "active" : ""}" type="button" data-tab="${key}">${label}</button>`).join("")}</nav><div class="sidebar-footer"><a class="sidebar-action" href="../index.html" target="_blank">View portfolio</a><button class="sidebar-action" id="logout" type="button">Sign out</button></div></aside>
     <main class="admin-main"><header class="admin-topbar"><div><button class="mobile-admin-toggle" id="mobile-admin-toggle" type="button" aria-label="Open menu">&#9776;</button><div><p class="eyebrow">Content dashboard</p><h1>${safe(menus.find(([key]) => key === state.active)?.[1] || "Dashboard")}</h1><p id="save-indicator">${state.demo ? "Preview mode - saving disabled" : safe(state.user)}</p></div></div><div class="admin-actions"><label class="admin-language-toggle" id="admin-language-toggle"><span class="language-toggle-copy"><strong>Enable Indonesian & English</strong><small>${bilingualEnabled() ? "Bilingual mode" : "English only"}</small></span><input type="checkbox" data-bind="site.languages.enabled" data-refresh-admin ${bilingualEnabled() ? "checked" : ""} aria-label="Enable bilingual editing" /><span class="toggle-track" aria-hidden="true"><span></span></span></label><button class="button button--outline" id="discard" type="button">Discard</button><button class="button" id="save" type="button">Save changes</button></div></header>
       <div id="notice-area"></div>
       ${homePanel()}${aboutPanel()}${listPanel("projects", "Projects", "Manage publishing, highlights, category filters, ordering, and project media.")}${certificatesPanel()}${listPanel("experience", "Experience", "Current roles are displayed first, followed by the latest end and start dates.")}${testimonialsPanel()}${contactPanel()}${settingsPanel()}
@@ -402,6 +435,10 @@ function bindAdminEvents() {
     renderAdmin();
   }));
   document.querySelector("#mobile-admin-toggle")?.addEventListener("click", () => document.querySelector("#admin-sidebar")?.classList.toggle("open"));
+  document.querySelector(".admin-customer-logo")?.addEventListener("error", (event) => {
+    event.currentTarget.hidden = true;
+    document.querySelector(".admin-brand-fallback").hidden = false;
+  });
   document.querySelector("#logout")?.addEventListener("click", () => {
     const signOut = () => {
       Object.assign(state, { content: null, token: "", user: "", dirty: false, demo: false });
@@ -436,6 +473,7 @@ function bindAdminEvents() {
   });
   document.querySelectorAll("[data-add-category]").forEach((button) => button.addEventListener("click", () => addCategory(button.dataset.addCategory)));
   document.querySelectorAll("[data-edit-category]").forEach((button) => button.addEventListener("click", () => editCategory(button.dataset.editCategory, button.dataset.category)));
+  document.querySelectorAll("[data-move-category]").forEach((button) => button.addEventListener("click", () => moveCategory(button.dataset.moveCategory, button.dataset.category, Number(button.dataset.direction))));
   document.querySelectorAll("[data-delete-category]").forEach((button) => button.addEventListener("click", () => deleteCategory(button.dataset.deleteCategory, button.dataset.category)));
   document.querySelectorAll("[data-upload-path]").forEach((input) => input.addEventListener("change", handleUpload));
   document.querySelectorAll("[data-search]").forEach((input) => input.addEventListener("input", () => {

@@ -1,4 +1,5 @@
 import { cleanUrl, loadContent } from "./cms.js";
+import { updateFavicon } from "./branding.js";
 
 const app = document.querySelector("#app");
 let activeLanguage = "en";
@@ -19,10 +20,10 @@ const isPublished = (item) => (item.status || "published").toLowerCase() === "pu
 
 const uiText = {
   en: {
-    iAm: "I am", projectHighlight: "Project highlight", highlightTitle: "Three projects,<br /><span class=\"accent\">one clear focus</span>", highlightCopy: "A quick look at the work that best represents my approach to product thinking, interaction, and visual craft.", experienceTitle: "My <span class=\"accent\">work experience</span>", selectedPortfolio: "Selected portfolio", projectsTitle: "Work built for<br /><span class=\"accent\">real outcomes</span>", projectsCopy: "A focused selection of product systems, interfaces, and digital experiences shaped around clarity and measurable value.", caseStudy: "Case study", viewProject: "View project", professionalDevelopment: "Professional development", collaborationNotes: "Collaboration notes", openConversation: "Open for conversation", navigation: "Navigation", contact: "Contact", preferEmail: "Prefer email?", present: "Present", visitProject: "Visit project", challenge: "The challenge", descriptionLabel: "Project description", storyEyebrow: "Case study notes", storyTitle: "Challenge & description", backPortfolio: "Back to portfolio", projectNotFound: "Project not found", projectUnavailable: "This project is unavailable or has not been published.",
+    iAm: "I am", projectHighlight: "Project highlight", highlightTitle: "Three projects,<br /><span class=\"accent\">one clear focus</span>", highlightCopy: "A quick look at the work that best represents my approach to product thinking, interaction, and visual craft.", experienceTitle: "My <span class=\"accent\">work experience</span>", selectedPortfolio: "Selected portfolio", projectsTitle: "Work built for<br /><span class=\"accent\">real outcomes</span>", projectsCopy: "A focused selection of product systems, interfaces, and digital experiences shaped around clarity and measurable value.", caseStudy: "Case study", viewProject: "View project", professionalDevelopment: "Professional development", collaborationNotes: "Collaboration notes", openConversation: "Open for conversation", navigation: "Navigation", contact: "Contact", preferEmail: "Prefer email?", present: "Present", visitProject: "Visit project", challenge: "The challenge", descriptionLabel: "Project description", storyEyebrow: "Case study notes", storyTitle: "Description & challenge", backPortfolio: "Back to portfolio", projectNotFound: "Project not found", projectUnavailable: "This project is unavailable or has not been published.",
   },
   id: {
-    iAm: "Saya", projectHighlight: "Sorotan proyek", highlightTitle: "Tiga proyek,<br /><span class=\"accent\">satu fokus jelas</span>", highlightCopy: "Pilihan karya yang paling mewakili pendekatan saya terhadap pemikiran produk, interaksi, dan visual.", experienceTitle: "Pengalaman <span class=\"accent\">kerja saya</span>", selectedPortfolio: "Portofolio pilihan", projectsTitle: "Karya untuk<br /><span class=\"accent\">hasil nyata</span>", projectsCopy: "Pilihan sistem produk, antarmuka, dan pengalaman digital yang dibangun untuk kejelasan dan nilai yang terukur.", caseStudy: "Studi kasus", viewProject: "Lihat proyek", professionalDevelopment: "Pengembangan profesional", collaborationNotes: "Catatan kolaborasi", openConversation: "Terbuka untuk berdiskusi", navigation: "Navigasi", contact: "Kontak", preferEmail: "Lebih suka email?", present: "Sekarang", visitProject: "Kunjungi proyek", challenge: "Tantangan", descriptionLabel: "Deskripsi proyek", storyEyebrow: "Catatan studi kasus", storyTitle: "Tantangan & deskripsi", backPortfolio: "Kembali ke portofolio", projectNotFound: "Proyek tidak ditemukan", projectUnavailable: "Proyek ini tidak tersedia atau belum dipublikasikan.",
+    iAm: "Saya", projectHighlight: "Sorotan proyek", highlightTitle: "Tiga proyek,<br /><span class=\"accent\">satu fokus jelas</span>", highlightCopy: "Pilihan karya yang paling mewakili pendekatan saya terhadap pemikiran produk, interaksi, dan visual.", experienceTitle: "Pengalaman <span class=\"accent\">kerja saya</span>", selectedPortfolio: "Portofolio pilihan", projectsTitle: "Karya untuk<br /><span class=\"accent\">hasil nyata</span>", projectsCopy: "Pilihan sistem produk, antarmuka, dan pengalaman digital yang dibangun untuk kejelasan dan nilai yang terukur.", caseStudy: "Studi kasus", viewProject: "Lihat proyek", professionalDevelopment: "Pengembangan profesional", collaborationNotes: "Catatan kolaborasi", openConversation: "Terbuka untuk berdiskusi", navigation: "Navigasi", contact: "Kontak", preferEmail: "Lebih suka email?", present: "Sekarang", visitProject: "Kunjungi proyek", challenge: "Tantangan", descriptionLabel: "Deskripsi proyek", storyEyebrow: "Catatan studi kasus", storyTitle: "Deskripsi & tantangan", backPortfolio: "Kembali ke portofolio", projectNotFound: "Proyek tidak ditemukan", projectUnavailable: "Proyek ini tidak tersedia atau belum dipublikasikan.",
   },
 };
 
@@ -348,8 +349,8 @@ function renderProjectDetail(content) {
         <section class="project-story reveal">
           <div class="project-story-heading"><p class="eyebrow">${safe(text("storyEyebrow"))}</p><h2>${safe(text("storyTitle"))}</h2></div>
           <div class="project-story-grid">
-            <article class="project-story-card"><span class="story-index">01</span><h3>${safe(text("challenge"))}</h3><p>${safe(translated(project, "challenge") || translated(project, "description"))}</p></article>
-            <article class="project-story-card"><span class="story-index">02</span><h3>${safe(text("descriptionLabel"))}</h3><p>${safe(translated(project, "description"))}</p></article>
+            <article class="project-story-card"><span class="story-index">01</span><h3>${safe(text("descriptionLabel"))}</h3><p>${safe(translated(project, "description"))}</p></article>
+            <article class="project-story-card"><span class="story-index">02</span><h3>${safe(text("challenge"))}</h3><p>${safe(translated(project, "challenge") || translated(project, "description"))}</p></article>
           </div>
         </section>
         <section class="gallery">${gallery.map((imageUrl, index) => `<img class="reveal" src="${safeUrl(imageUrl)}" alt="${safe(translated(project, "title"))} gallery image ${index + 1}" />`).join("") || '<div class="empty-state">Project gallery images will appear here.</div>'}</section>
@@ -478,6 +479,7 @@ async function boot() {
   app.innerHTML = '<div class="loading-screen"><div class="loader" aria-label="Loading portfolio"></div></div>';
   try {
     currentContent = await loadContent();
+    updateFavicon(currentContent.site?.logoUrl);
     currentPageIsDetail = window.location.pathname.toLowerCase().endsWith("project.html") || new URLSearchParams(window.location.search).has("slug");
     const defaultLanguage = currentContent.site?.languages?.defaultLanguage === "id" ? "id" : "en";
     let savedLanguage = "";

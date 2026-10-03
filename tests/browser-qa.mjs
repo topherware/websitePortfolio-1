@@ -308,7 +308,7 @@ try {
   assert.equal(await detailPage.locator("h1").textContent(), "Food Delivery Experience");
   assert.equal(await detailPage.locator(".error-state").count(), 0);
   assert.equal(await detailPage.locator(".project-story-card").count(), 2, "project challenge and description are not separated");
-  assert.deepEqual(await detailPage.locator(".project-story-card h3").allTextContents(), ["The challenge", "Project description"]);
+  assert.deepEqual(await detailPage.locator(".project-story-card h3").allTextContents(), ["Project description", "The challenge"]);
   const projectStoryHeight = await detailPage.locator(".project-story").evaluate((element) => element.getBoundingClientRect().height);
   assert.ok(projectStoryHeight < 430, "project challenge section uses too much vertical space");
   await detailPage.locator(".project-story").scrollIntoViewIfNeeded();
@@ -339,7 +339,7 @@ try {
   assert.ok(longStoryLayout.cards.every((card) => card.whiteSpace === "pre-line" && card.overflowWrap === "anywhere"), "long project story typography is not resilient");
   await detailPage.locator(".project-story").screenshot({ path: outputPath("project-story-long.png") });
   await detailPage.locator('[data-language="id"]').click();
-  assert.deepEqual(await detailPage.locator(".project-story-card h3").allTextContents(), ["Tantangan", "Deskripsi proyek"]);
+  assert.deepEqual(await detailPage.locator(".project-story-card h3").allTextContents(), ["Deskripsi proyek", "Tantangan"]);
   assert.equal(await detailPage.locator("h1").textContent(), "Pengalaman Pesan Antar Makanan");
   await detailPage.locator('[data-language="en"]').click();
   await detailPage.evaluate(() => document.querySelectorAll(".reveal").forEach((element) => element.classList.add("visible")));

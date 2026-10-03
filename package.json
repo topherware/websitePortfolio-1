@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "serve": "python -m http.server 4173",
-    "check": "node --check app.js && node --check cms.js && node --check admin/admin.js && node --check admin/auth.js && node --check tests/browser-qa.mjs && node --check scripts/build.mjs",
+    "check": "node --check app.js && node --check cms.js && node --check branding.js && node --check admin/admin.js && node --check admin/auth.js && node --check tests/browser-qa.mjs && node --check scripts/build.mjs",
     "test": "node tests/smoke.test.mjs && node tests/auth.test.mjs && node tests/save.test.mjs && node tests/upload.test.mjs",
     "seed:generate": "node scripts/generate-seed.mjs",
     "test:browser": "node tests/browser-qa.mjs",

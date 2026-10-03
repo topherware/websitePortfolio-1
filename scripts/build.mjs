@@ -4,7 +4,7 @@ import { resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
 const output = resolve(root, "dist");
-const files = ["index.html", "project.html", "styles.css", "app.js", "cms.js", "config.example.js", "favicon.svg", "README.md"];
+const files = ["index.html", "project.html", "styles.css", "app.js", "cms.js", "branding.js", "config.example.js", "favicon.svg", "README.md"];
 
 await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });

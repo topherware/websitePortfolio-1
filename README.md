@@ -57,7 +57,7 @@ Using a disposable buyer account, verify invitation delivery, activation, login,
 
 ## Asset guidance
 
-- Logo: recommended `800 x 240 px`, `10:3`, transparent PNG or WebP, maximum 10 MB. Square and alternate ratios remain proportional through `object-fit: contain`.
+- Logo: square `1:1`, recommended `512 x 512 px`, transparent PNG or WebP, maximum 10 MB. Also used in the admin panel and browser tab.
 - Portrait: recommended `1200 x 1600 px`, `3:4`, transparent PNG or WebP, maximum 10 MB. Use a half-body crop with the complete head, hair, shoulders, and torso visible.
 - About/experience photo: recommended `1200 x 1400 px`, `6:7`.
 - Project main image: recommended `1600 x 1000 px`, `8:5`.

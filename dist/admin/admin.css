@@ -110,13 +110,23 @@
   font-weight: 800;
 }
 
-.admin-brand span:first-child {
+.admin-brand-fallback {
   display: grid;
   width: 36px;
   height: 36px;
   place-items: center;
   border-radius: 50%;
   background: var(--orange);
+  flex-shrink: 0;
+}
+
+.admin-brand-fallback[hidden], .admin-customer-logo[hidden] { display: none; }
+
+.admin-customer-logo {
+  width: 56px;
+  height: 40px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .admin-menu {
@@ -1198,6 +1208,11 @@
 
 .category-chip button:last-child {
   color: #a23125;
+}
+
+.category-chip button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
 }
 
 .repeatable-field {
