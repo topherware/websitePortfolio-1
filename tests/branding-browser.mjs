@@ -10,7 +10,7 @@ try {
   await context.route("**/config.js", route => route.fulfill({ contentType: "application/javascript", body: 'window.__PORTFOLIO_CONFIG__={supabaseUrl:"https://test.supabase.co",supabaseAnonKey:"public"};' }));
   await context.route("https://test.supabase.co/**", async route => {
     const path = new URL(route.request().url()).pathname;
-    if (path.startsWith("/storage/v1/object/public/")) return route.fulfill({ contentType: "image/svg+xml", body: svg });
+    if (path.startsWith("/storage/v1/object/public/")) return route.fulfill({ contentType: "image/svg+xml", headers: { 'access-control-allow-origin': '*' }, body: svg });
     let body = {};
     if (path === "/auth/v1/token") body = { access_token: "token", user: { id: "buyer", email: "buyer@example.com" } };
     if (path === "/rest/v1/admin_users") body = [{ user_id: "buyer" }];
@@ -30,19 +30,29 @@ try {
   await page.locator('[data-upload-path="site.logoUrl"]').setInputFiles({ name: "logo.png", mimeType: "image/png", buffer: Buffer.from("test") });
   await page.locator('.admin-customer-logo').waitFor();
   const logo = await page.locator('.admin-customer-logo').getAttribute('src');
-  assert.equal(await page.locator('link[rel="icon"]').getAttribute('href'), logo);
-  assert.equal(await page.locator('link[rel="icon"]').getAttribute('type'), null);
+  await page.waitForFunction(expected => document.querySelector('link[rel="icon"]').dataset.logoSource === expected, logo);
+  assert.equal(await page.locator('link[rel="icon"]').getAttribute('type'), 'image/png');
+  const alpha = await page.evaluate(async () => {
+    const img = new Image(); img.src = document.querySelector('link[rel="icon"]').href; await img.decode();
+    const canvas = document.createElement('canvas'); canvas.width = canvas.height = 64;
+    const ctx = canvas.getContext('2d'); ctx.drawImage(img, 0, 0);
+    return [ctx.getImageData(0, 0, 1, 1).data[3], ctx.getImageData(32, 32, 1, 1).data[3]];
+  });
+  assert.deepEqual(alpha, [0, 255]);
   await page.getByRole('button', { name: 'Save changes', exact: true }).click();
   await page.getByText('Changes saved. Published content is now available to the public portfolio.').waitFor();
   for (const path of ['/', '/project.html?slug=test', '/admin/']) {
     const tab = await context.newPage();
     await tab.goto(`http://127.0.0.1:4173${path}`);
-    await tab.waitForFunction(expected => document.querySelector('link[rel="icon"]').href === expected, logo);
+    await tab.waitForFunction(expected => document.querySelector('link[rel="icon"]').dataset.logoSource === expected && document.querySelector('link[rel="icon"]').href.startsWith('data:image/png'), logo);
     await tab.close();
   }
   for (const width of [1440, 390]) {
     await page.setViewportSize({ width, height: 900 });
-    assert.equal(await page.locator('.admin-customer-logo').evaluate(img => getComputedStyle(img).objectFit), 'contain');
+    assert.deepEqual(await page.locator('.admin-customer-logo').evaluate(img => {
+      const style = getComputedStyle(img);
+      return [style.objectFit, style.borderRadius, style.width === style.height];
+    }), ['cover', '50%', true]);
   }
   await page.evaluate(async () => { const { updateFavicon } = await import('/branding.js'); updateFavicon('javascript:alert(1)'); });
   assert.equal(await page.locator('link[rel="icon"]').getAttribute('href'), '../favicon.svg');

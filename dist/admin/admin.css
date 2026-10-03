@@ -123,9 +123,10 @@
 .admin-brand-fallback[hidden], .admin-customer-logo[hidden] { display: none; }
 
 .admin-customer-logo {
-  width: 56px;
+  width: 40px;
   height: 40px;
-  object-fit: contain;
+  border-radius: 50%;
+  object-fit: cover;
   flex-shrink: 0;
 }
 

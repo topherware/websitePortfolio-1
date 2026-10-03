@@ -180,6 +180,9 @@ const requiredNavigation = [
 function normalizeContent(content) {
   const normalized = content || structuredClone(demoContent);
   normalized.site ||= {};
+  normalized.about ||= {};
+  // Keep photos uploaded through the old Experience field available in About Me.
+  normalized.about.photoUrl ||= normalized.experiencePhotoUrl || "";
   normalized.site.languages = { enabled: false, defaultLanguage: "en", ...(normalized.site.languages || {}) };
   normalized.site.languages.defaultLanguage = normalized.site.languages.defaultLanguage === "id" ? "id" : "en";
   if (typeof normalized.site.runningText !== "string") normalized.site.runningText = "UX Design + App Design + Dashboard + Wireframe + User Research +";

@@ -377,11 +377,11 @@ img {
 .hero-heading {
   position: relative;
   z-index: 4;
-  max-width: 850px;
+  max-width: 1000px;
   margin: 0 auto;
   color: var(--ink);
   text-align: center;
-  font-size: clamp(3.2rem, 7.25vw, 7.25rem);
+  font-size: clamp(2.75rem, 5vw, 5rem);
   font-weight: 600;
   letter-spacing: -0.025em;
   line-height: 1.12;
@@ -1883,7 +1883,7 @@ img {
   }
 
   .hero-heading {
-    font-size: clamp(2.85rem, 14vw, 4.5rem);
+    font-size: clamp(2.25rem, 9vw, 3rem);
     line-height: 1.12;
     overflow-wrap: anywhere;
   }
