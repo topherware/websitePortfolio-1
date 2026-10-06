@@ -22,12 +22,20 @@ await mkdir(outputDirectory, { recursive: true });
 const outputPath = (name) => fileURLToPath(new URL(name, outputDirectory));
 
 const browser = await chromium.launch({ channel: "chrome", headless: true });
+// This suite asserts demo content; isolate it from local CMS configuration.
+async function demoPage(options) {
+  const page = await browser.newPage(options);
+  await page.route("**/config.js", route => route.fulfill({
+    contentType: "application/javascript", body: "window.__PORTFOLIO_CONFIG__ = {};",
+  }));
+  return page;
+}
 const results = [];
 let failed = false;
 
 try {
   for (const viewport of viewports) {
-    const page = await browser.newPage({ viewport });
+    const page = await demoPage({ viewport });
     const consoleErrors = [];
     const pageErrors = [];
     page.on("console", (message) => {
@@ -193,7 +201,7 @@ try {
       await researchFilter.click();
       const visibleCategories = await page.locator("#experience-list [data-category]:visible").evaluateAll((cards) => cards.map((card) => card.dataset.category));
       assert.ok(visibleCategories.every((category) => category === "Research"), `${viewport.name}: experience filter mismatch`);
-      await page.locator('[data-filter-target="experience"] [data-filter="All"]').click();
+      await page.locator('[data-filter-target="experience"] [data-filter]').first().click();
     }
 
     const footerAlignment = await page.evaluate(() => {
@@ -223,7 +231,7 @@ try {
       });
       assert.ok(headerGapRatio < 1.35, `desktop header spacing is uneven (${headerGapRatio.toFixed(2)} ratio)`);
       const timelineLayout = await page.locator("#experience-list").evaluate((timeline) => {
-        const items = [...timeline.querySelectorAll(".timeline-item")];
+        const items = [...timeline.querySelectorAll(".timeline-item:not([hidden])")];
         const timelineRect = timeline.getBoundingClientRect();
         const containerRect = timeline.closest(".container").getBoundingClientRect();
         const visibleContentRects = [...timeline.querySelectorAll(".timeline-company h3, .timeline-company p, .timeline-role h3, .timeline-role p, .timeline-role .skill-list")]
@@ -290,7 +298,7 @@ try {
     await page.close();
   }
 
-  const transitionPage = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  const transitionPage = await demoPage({ viewport: { width: 1440, height: 900 } });
   await transitionPage.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
   await transitionPage.locator(".page-transition.is-revealing").waitFor();
   await transitionPage.waitForTimeout(750);
@@ -303,7 +311,7 @@ try {
   assert.equal(await transitionPage.locator("h1").textContent(), "Food Delivery Experience");
   await transitionPage.close();
 
-  const detailPage = await browser.newPage({ viewport: { width: 1024, height: 900 } });
+  const detailPage = await demoPage({ viewport: { width: 1024, height: 900 } });
   await detailPage.goto(`${baseUrl}/project.html?slug=food-delivery-experience`, { waitUntil: "networkidle" });
   assert.equal(await detailPage.locator("h1").textContent(), "Food Delivery Experience");
   assert.equal(await detailPage.locator(".error-state").count(), 0);
@@ -346,7 +354,7 @@ try {
   await detailPage.screenshot({ path: outputPath("project-detail.png"), fullPage: true });
   await detailPage.close();
 
-  const detailMobilePage = await browser.newPage({ viewport: { width: 390, height: 844 } });
+  const detailMobilePage = await demoPage({ viewport: { width: 390, height: 844 } });
   await detailMobilePage.goto(`${baseUrl}/project.html?slug=food-delivery-experience`, { waitUntil: "networkidle" });
   await detailMobilePage.locator(".project-story").scrollIntoViewIfNeeded();
   await detailMobilePage.locator(".project-story.visible").waitFor();
@@ -365,7 +373,7 @@ try {
   await detailMobilePage.locator(".project-story").screenshot({ path: outputPath("project-story-mobile.png") });
   await detailMobilePage.close();
 
-  const adminPage = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
+  const adminPage = await demoPage({ viewport: { width: 1440, height: 1000 } });
   const adminErrors = [];
   const adminDialogs = [];
   adminPage.on("pageerror", (error) => adminErrors.push(error.message));
@@ -492,7 +500,7 @@ try {
   results.push({ name: "admin-desktop", pageErrors: adminErrors });
   await adminPage.close();
 
-  const adminMobile = await browser.newPage({ viewport: { width: 390, height: 844 } });
+  const adminMobile = await demoPage({ viewport: { width: 390, height: 844 } });
   await adminMobile.goto(`${baseUrl}/admin/`, { waitUntil: "networkidle" });
   await adminMobile.locator("#preview-admin").click();
   await adminMobile.locator("#mobile-admin-toggle").click();

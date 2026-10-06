@@ -20,9 +20,11 @@ const isPublished = (item) => (item.status || "published").toLowerCase() === "pu
 
 const uiText = {
   en: {
+    viewMore: "View more", showMore: "Show more", showAll: "Show all", showLess: "Show less",
     iAm: "I am", projectHighlight: "Project highlight", highlightTitle: "Three projects,<br /><span class=\"accent\">one clear focus</span>", highlightCopy: "A quick look at the work that best represents my approach to product thinking, interaction, and visual craft.", experienceTitle: "My <span class=\"accent\">work experience</span>", selectedPortfolio: "Selected portfolio", projectsTitle: "Work built for<br /><span class=\"accent\">real outcomes</span>", projectsCopy: "A focused selection of product systems, interfaces, and digital experiences shaped around clarity and measurable value.", caseStudy: "Case study", viewProject: "View project", professionalDevelopment: "Professional development", collaborationNotes: "Collaboration notes", openConversation: "Open for conversation", navigation: "Navigation", contact: "Contact", preferEmail: "Prefer email?", present: "Present", visitProject: "Visit project", challenge: "The challenge", descriptionLabel: "Project description", storyEyebrow: "Case study notes", storyTitle: "Description & challenge", backPortfolio: "Back to portfolio", projectNotFound: "Project not found", projectUnavailable: "This project is unavailable or has not been published.",
   },
   id: {
+    viewMore: "Lihat lebih banyak", showMore: "Tampilkan lebih banyak", showAll: "Tampilkan semua", showLess: "Tampilkan lebih sedikit",
     iAm: "Saya", projectHighlight: "Sorotan proyek", highlightTitle: "Tiga proyek,<br /><span class=\"accent\">satu fokus jelas</span>", highlightCopy: "Pilihan karya yang paling mewakili pendekatan saya terhadap pemikiran produk, interaksi, dan visual.", experienceTitle: "Pengalaman <span class=\"accent\">kerja saya</span>", selectedPortfolio: "Portofolio pilihan", projectsTitle: "Karya untuk<br /><span class=\"accent\">hasil nyata</span>", projectsCopy: "Pilihan sistem produk, antarmuka, dan pengalaman digital yang dibangun untuk kejelasan dan nilai yang terukur.", caseStudy: "Studi kasus", viewProject: "Lihat proyek", professionalDevelopment: "Pengembangan profesional", collaborationNotes: "Catatan kolaborasi", openConversation: "Terbuka untuk berdiskusi", navigation: "Navigasi", contact: "Kontak", preferEmail: "Lebih suka email?", present: "Sekarang", visitProject: "Kunjungi proyek", challenge: "Tantangan", descriptionLabel: "Deskripsi proyek", storyEyebrow: "Catatan studi kasus", storyTitle: "Deskripsi & tantangan", backPortfolio: "Kembali ke portofolio", projectNotFound: "Proyek tidak ditemukan", projectUnavailable: "Proyek ini tidak tersedia atau belum dipublikasikan.",
   },
 };
@@ -48,6 +50,26 @@ function imageOrFallback(url, alt, className = "") {
 
 function iconArrow() {
   return '<span class="arrow" aria-hidden="true">&#8599;</span>';
+}
+
+function socialIcon(platform = "") {
+  const icons = {
+    linkedin: '<path fill="currentColor" d="M5 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM3.5 9h3v12h-3V9Zm6 0h3v1.6c.6-1.1 1.8-1.9 3.5-1.9 3.1 0 4.5 1.8 4.5 5.2V21h-3v-6.4c0-1.9-.6-3-2.2-3-1.7 0-2.8 1.2-2.8 3.3V21h-3V9Z"/>',
+    instagram: '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>',
+    whatsapp: '<path d="M20.5 11.7a8.5 8.5 0 0 1-12.7 7.4L3 21l1.7-4.9a8.5 8.5 0 1 1 15.8-4.4Z"/><path d="m8 7 1.5 3-1 1c1 2 2.5 3.5 4.5 4.5l1-1 3 1.5c0 1.5-1.1 2.3-2.5 2-4.5-1-8-4.5-9-9C5.2 7.6 6.5 7 8 7Z" transform="translate(1 -1) scale(.9)"/>',
+    facebook: '<path fill="currentColor" stroke="none" d="M14 22v-9h3l.5-4H14V7c0-1.2.3-2 2-2h2V1.5A24 24 0 0 0 15 1c-3 0-5 1.8-5 5v3H7v4h3v9Z"/>',
+    x: '<path d="m4 3 16 18h-4L4 3h4l12 18M20 3 4 21"/>',
+    youtube: '<rect x="2" y="5" width="20" height="14" rx="4"/><path fill="currentColor" stroke="none" d="m10 8 6 4-6 4Z"/>',
+    telegram: '<path d="m21 3-4 18-6-5-4 3 1-7 13-9-18 7 5 2M11 16l10-13"/>',
+    github: '<path fill="currentColor" stroke="none" d="M12 2a10 10 0 0 0-3.2 19.5v-2.3c-2.7.6-3.3-1.2-3.3-1.2-.4-1.1-1-1.4-1-1.4-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.8.9.1-.6.3-1.1.6-1.4-2.2-.3-4.5-1.1-4.5-5a3.8 3.8 0 0 1 1-2.7c-.1-.3-.4-1.3.1-2.7 0 0 .9-.3 2.8 1a9.7 9.7 0 0 1 5.1 0c2-1.3 2.8-1 2.8-1 .6 1.4.2 2.4.1 2.7a3.8 3.8 0 0 1 1 2.7c0 3.9-2.3 4.7-4.5 5 .4.4.7 1 .7 2v3A10 10 0 0 0 12 2Z"/>',
+  };
+  const key = platform.toLowerCase().replace(/[^a-z]/g, "");
+  const icon = icons[key === "twitter" ? "x" : key] || '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c5 5 5 13 0 18-5-5-5-13 0-18Z"/>';
+  return `<svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${icon}</svg>`;
+}
+
+function renderListToggle(target, label) {
+  return `<div class="list-actions"><button class="button button--outline list-toggle" type="button" data-list-toggle="${target}" data-expand-label="${label}" aria-controls="${target}-list" aria-expanded="false" hidden><span>${safe(text(label))}</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></div>`;
 }
 
 function accentLastWord(value) {
@@ -163,7 +185,8 @@ function renderHighlight(content) {
 
 function renderExperience(content) {
   const items = sortExperiences((content.experiences || []).filter(isPublished));
-  const categories = content.experienceCategories || ["All"];
+  const categories = [...new Set([...(content.experienceCategories || []), ...items.map((item) => item.category)])].filter((category) => category && category.toLowerCase() !== "all");
+  const defaultCategory = categories.find((category) => category.toLowerCase() === "work") || categories[0];
   const timeline = items.map((item) => `
     <article class="timeline-item reveal" data-category="${safe(item.category)}">
       <div class="timeline-company">
@@ -182,9 +205,10 @@ function renderExperience(content) {
       <div class="container">
         <h2 class="section-title reveal">${text("experienceTitle")}</h2>
         <div class="filter-row" data-filter-target="experience">
-          ${categories.map((category, index) => `<button class="filter-button${index === 0 ? " active" : ""}" type="button" data-filter="${safe(category)}">${safe(categoryLabel(content, "experience", category))}</button>`).join("")}
+          ${categories.map((category) => `<button class="filter-button${category === defaultCategory ? " active" : ""}" type="button" data-filter="${safe(category)}" aria-pressed="${category === defaultCategory}">${safe(categoryLabel(content, "experience", category))}</button>`).join("")}
         </div>
-        <div class="timeline" id="experience-list">${timeline || '<div class="empty-state">Experience entries will appear here when published.</div>'}</div>
+        <div class="timeline" id="experience-list" data-list-limit="2">${timeline || '<div class="empty-state">Experience entries will appear here when published.</div>'}</div>
+        ${renderListToggle("experience", "viewMore")}
       </div>
     </section>`;
 }
@@ -238,7 +262,8 @@ function renderProjects(content) {
         <div class="filter-row" data-filter-target="projects">
           ${categories.map((category, index) => `<button class="filter-button${index === 0 ? " active" : ""}" type="button" data-filter="${safe(category)}">${safe(categoryLabel(content, "project", category))}</button>`).join("")}
         </div>
-        <div class="project-grid" id="projects-list">${cards || '<div class="empty-state">Projects will appear here when published.</div>'}</div>
+        <div class="project-grid" id="projects-list" data-list-limit="3">${cards || '<div class="empty-state">Projects will appear here when published.</div>'}</div>
+        ${renderListToggle("projects", "showAll")}
       </div>
     </section>`;
 }
@@ -251,9 +276,10 @@ function renderCertificates(content) {
         <p class="eyebrow reveal">${safe(text("professionalDevelopment"))}</p>
         <h2 class="section-title reveal">${safe(translated(content, "certificateTitle"))}</h2>
         <p class="section-copy reveal">${safe(translated(content, "certificateSubtitle"))}</p>
-        <div class="certificate-grid">
+        <div class="certificate-grid" id="certificates-list" data-list-limit="3">
           ${certificates.map((certificate) => `<article class="certificate-card reveal"><div class="certificate-image">${imageOrFallback(certificate.imageUrl, translated(certificate, "title"))}</div><div class="certificate-body"><p class="certificate-category">${safe(translated(certificate, "category"))}</p><h3>${safe(translated(certificate, "title"))}</h3><div class="certificate-meta"><span>${safe(certificate.issuer || "Issuer not set")}</span><span>${safe(certificate.year || "Year not set")}</span></div></div></article>`).join("") || '<div class="empty-state">Certificates will appear here when published.</div>'}
         </div>
+        ${renderListToggle("certificates", "showMore")}
       </div>
     </section>`;
 }
@@ -294,7 +320,7 @@ function renderFooter(content) {
     <footer class="site-footer" id="contact">
       <div class="footer-top"><div><p class="eyebrow">${safe(text("openConversation"))}</p><h2>${safe(translated(contact, "title") || "Let us start a conversation")}</h2></div><a class="button" href="${safeUrl(chatHref) || "#contact"}">${safe(translated(site, "ctaLabel") || "Chat with me")} ${iconArrow()}</a></div>
       <div class="footer-grid">
-        <div class="footer-brand">${renderBrand(site)}<p>${safe(translated(site, "description"))}</p><div class="social-row">${socials.map((social) => `<a class="social-link" href="${safeUrl(social.url)}" target="_blank" rel="noopener" aria-label="${safe(social.platform)}">${safe(initials(social.platform))}</a>`).join("")}</div></div>
+        <div class="footer-brand">${renderBrand(site)}<p>${safe(translated(site, "description"))}</p><div class="social-row">${socials.map((social) => `<a class="social-link" href="${safeUrl(social.url)}" target="_blank" rel="noopener" aria-label="${safe(social.platform)}" title="${safe(social.platform)}">${socialIcon(social.platform)}</a>`).join("")}</div></div>
         <div class="footer-column"><h3>${safe(text("navigation"))}</h3>${(site.navigation || []).map((item) => `<a href="${safeUrl(item.href) || "#"}">${safe(translated(item, "label"))}</a>`).join("")}</div>
         <div class="footer-column"><h3>${safe(text("contact"))}</h3>${emailHref ? `<a href="${safe(emailHref)}">${safe(contact.email)}</a>` : ""}${phoneHref ? `<a href="${safe(phoneHref)}">${safe(contact.phone)}</a>` : ""}${cleanUrl(home.cvUrl) ? `<a href="${safeUrl(home.cvUrl)}" target="_blank" rel="noopener">${safe(translated(home, "cvLabel"))}</a>` : ""}</div>
         <div class="footer-column footer-contact-card"><h3>${safe(text("preferEmail"))}</h3><span>${safe(translated(contact, "subtitle") || "Send a short note and I will get back to you.")}</span>${emailHref ? `<a class="button footer-email-button" href="${safe(emailHref)}">${safe(translated(contact, "emailLabel"))} ${iconArrow()}</a>` : ""}</div>
@@ -395,14 +421,43 @@ function setupLanguageSwitch() {
 }
 
 function setupFilters() {
-  document.querySelectorAll("[data-filter-target]").forEach((row) => {
-    const target = row.dataset.filterTarget;
-    row.querySelectorAll("[data-filter]").forEach((button) => button.addEventListener("click", () => {
-      row.querySelectorAll("[data-filter]").forEach((item) => item.classList.toggle("active", item === button));
-      document.querySelectorAll(`#${target}-list [data-category]`).forEach((card) => {
-        card.hidden = button.dataset.filter !== "All" && card.dataset.category !== button.dataset.filter;
+  document.querySelectorAll("[data-list-limit]").forEach((list) => {
+    const target = list.id.replace(/-list$/, "");
+    const row = document.querySelector(`[data-filter-target="${target}"]`);
+    const toggle = document.querySelector(`[data-list-toggle="${target}"]`);
+    const cards = [...list.children].filter((card) => card.matches("article"));
+    const limit = Number(list.dataset.listLimit);
+    let category = row?.querySelector(".active")?.dataset.filter || "All";
+    let expanded = false;
+
+    const update = () => {
+      const matching = cards.filter((card) => category === "All" || card.dataset.category === category);
+      const shown = new Set(expanded ? matching : matching.slice(0, limit));
+      cards.forEach((card) => {
+        card.hidden = !shown.has(card);
+        card.classList.remove("last-visible");
       });
+      [...shown].at(-1)?.classList.add("last-visible");
+      toggle.hidden = matching.length <= limit;
+      toggle.setAttribute("aria-expanded", String(expanded));
+      toggle.querySelector("span").textContent = text(expanded ? "showLess" : toggle.dataset.expandLabel);
+    };
+
+    row?.querySelectorAll("[data-filter]").forEach((button) => button.addEventListener("click", () => {
+      row.querySelectorAll("[data-filter]").forEach((item) => {
+        item.classList.toggle("active", item === button);
+        item.setAttribute("aria-pressed", String(item === button));
+      });
+      category = button.dataset.filter;
+      expanded = false;
+      update();
     }));
+    toggle.addEventListener("click", () => {
+      expanded = !expanded;
+      update();
+      if (!expanded) toggle.scrollIntoView({ block: "nearest", behavior: "instant" });
+    });
+    update();
   });
 }
 

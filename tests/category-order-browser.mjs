@@ -42,7 +42,7 @@ try {
     await publicPage.goto('http://127.0.0.1:4173/');
     const target = tab === 'Projects' ? 'projects' : 'experience';
     await publicPage.locator(`[data-filter-target="${target}"]`).waitFor();
-    assert.deepEqual(await publicPage.locator(`[data-filter-target="${target}"] button`).allTextContents(), expected);
+    assert.deepEqual(await publicPage.locator(`[data-filter-target="${target}"] button`).allTextContents(), target === 'experience' ? expected.filter(category => category !== 'All') : expected);
     await publicPage.close();
     await page.setViewportSize({ width: 390, height: 844 });
     assert.equal(await panel.locator('.category-manager').evaluate(el => el.scrollWidth <= el.clientWidth + 1), true);
