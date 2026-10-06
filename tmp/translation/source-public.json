@@ -1,0 +1,1191 @@
+[
+  {
+    "content": {
+      "home": {
+        "name": "Christopher Cuangdinata",
+        "role": "Product Manager",
+        "cvUrl": "https://yoadtwsrccryjxmspnoi.supabase.co/storage/v1/object/public/portfolio/cv/8c9e25fa-0788-49bf-8b63-3cda3fb6ee07.pdf",
+        "quote": "Understand the problem. Prioritize the impact. Build with purpose. Iterate with evidence.",
+        "stats": [
+          {
+            "label": "Certificates",
+            "value": "10+",
+            "labelId": "Sertifikat"
+          },
+          {
+            "label": "Projects Completed",
+            "value": "10+",
+            "labelId": "Proyek Selesai"
+          },
+          {
+            "label": "GPA",
+            "value": "3.93",
+            "labelId": "IPK"
+          }
+        ],
+        "roleId": "Product Manager",
+        "cvLabel": "Download CV",
+        "quoteId": "Pahami masalahnya. Prioritaskan dampaknya. Bangun dengan tujuan. Iterasikan berdasarkan bukti.",
+        "greeting": "Hello!",
+        "cvLabelId": "Unduh CV",
+        "greetingId": "Halo!",
+        "portraitUrl": "https://yoadtwsrccryjxmspnoi.supabase.co/storage/v1/object/public/portfolio/portraits/7c077e14-a691-4aec-bab6-2159ec39e906.png",
+        "primaryCtaLabel": "Portfolio",
+        "primaryCtaLabelId": "Portofolio"
+      },
+      "site": {
+        "name": "Chris's Portfolio",
+        "ctaHref": "#contact",
+        "logoUrl": "https://yoadtwsrccryjxmspnoi.supabase.co/storage/v1/object/public/portfolio/logos/06e517f0-6c45-44c8-822d-52a695f58a9c.png",
+        "ctaLabel": "Chat with me",
+        "languages": {
+          "enabled": false,
+          "defaultLanguage": "en"
+        },
+        "ctaLabelId": "Hubungi saya",
+        "footerNote": "Copyright 2026. All rights reserved.",
+        "navigation": [
+          {
+            "href": "#home",
+            "label": "Home",
+            "labelId": "Beranda"
+          },
+          {
+            "href": "#about",
+            "label": "About",
+            "labelId": "Tentang"
+          },
+          {
+            "href": "#experience",
+            "label": "Experience",
+            "labelId": "Pengalaman"
+          },
+          {
+            "href": "#projects",
+            "label": "Projects",
+            "labelId": "Proyek"
+          },
+          {
+            "href": "#certificates",
+            "label": "Certificates",
+            "labelId": "Sertifikat"
+          },
+          {
+            "href": "#contact",
+            "label": "Contact",
+            "labelId": "Kontak"
+          }
+        ],
+        "description": "Independent product designer portfolio",
+        "runningText": "UX Design + App Design + Dashboard + Wireframe + User Research +",
+        "footerNoteId": "Hak cipta 2026. Seluruh hak dilindungi.",
+        "descriptionId": "Portofolio desainer produk independen",
+        "runningTextId": "Desain UX + Desain Aplikasi + Dashboard + Wireframe + Riset Pengguna +"
+      },
+      "about": {
+        "title": "About me",
+        "titleId": "Tentang saya",
+        "photoUrl": "https://yoadtwsrccryjxmspnoi.supabase.co/storage/v1/object/public/portfolio/experience/17c0e42d-8cb2-4693-9958-41da392035c2.png",
+        "subtitle": "Design with a clear point of view",
+        "buttonHref": "#experience",
+        "paragraphs": [
+          "I am currently a 7th-semester student pursuing a double degree in Information Systems and Management at Bina Nusantara University, class of 2027. With a strong interest in technology, business, and leadership, I aim to develop both my analytical and managerial skills to prepare for a future career that bridges IT and business strategy.",
+          "Alongside my academic journey, I am currently gaining professional experience as a Process Improvement and Reengineering Intern at Blibli. In this role, I am involved in identifying opportunities to improve business processes through process redesign, automation, and operational efficiency initiatives. This experience has strengthened my ability to analyze workflows, identify improvement opportunities, and develop practical solutions that can create measurable business impact."
+        ],
+        "subtitleId": "Desain dengan sudut pandang yang jelas",
+        "buttonLabel": "Experience",
+        "paragraphsId": [
+          "Saat ini, saya merupakan mahasiswa semester 7 yang sedang menempuh program double degree Information Systems dan Management di Bina Nusantara University, angkatan 2027. Dengan ketertarikan yang kuat pada bidang teknologi, bisnis, dan kepemimpinan, saya terus mengembangkan kemampuan analitis dan manajerial sebagai persiapan untuk membangun karier yang menghubungkan teknologi informasi dengan strategi bisnis.",
+          "Selain menjalani perkuliahan, saat ini saya juga memperoleh pengalaman profesional sebagai Process Improvement and Reengineering Intern di Blibli. Dalam peran ini, saya terlibat dalam mengidentifikasi peluang peningkatan proses bisnis melalui perancangan ulang proses, otomatisasi, serta berbagai inisiatif peningkatan efisiensi operasional. Pengalaman ini membantu saya mengembangkan kemampuan dalam menganalisis alur kerja, menemukan peluang perbaikan, serta merancang solusi praktis yang dapat memberikan dampak bisnis yang terukur."
+        ],
+        "buttonLabelId": "Pengalaman"
+      },
+      "posts": [
+        {
+          "url": "#",
+          "date": "2026-07-10",
+          "title": "Behind the scenes of a useful design system",
+          "category": "UI/UX Design",
+          "imageUrl": ""
+        },
+        {
+          "url": "#",
+          "date": "2026-06-09",
+          "title": "Designing financial tools for real-world confidence",
+          "category": "App Design",
+          "imageUrl": ""
+        },
+        {
+          "url": "#",
+          "date": "2026-05-13",
+          "title": "How to make research visible to the whole team",
+          "category": "Research",
+          "imageUrl": ""
+        }
+      ],
+      "contact": {
+        "email": "christozuang@gmail.com",
+        "phone": "082210392364",
+        "title": "Let us start a conversation",
+        "socials": [
+          {
+            "url": "https://www.linkedin.com/in/christopher-cuangdinata-080838284?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+            "platform": "LinkedIn"
+          },
+          {
+            "url": "https://www.instagram.com/christo_cuang?igsh=aDl2aXpteGdpOTh3&utm_source=qr",
+            "platform": "Instagram"
+          },
+          {
+            "url": "https://wa.me/6282210392364",
+            "platform": "WhatsApp"
+          }
+        ],
+        "titleId": "Mari mulai percakapan",
+        "subtitle": "Chat about your next product",
+        "emailLabel": "Email me",
+        "phoneLabel": "Call me",
+        "subtitleId": "Ceritakan produk berikutnya",
+        "emailLabelId": "Kirim email",
+        "phoneLabelId": "Telepon saya"
+      },
+      "projects": [
+        {
+          "slug": "mental health support",
+          "order": 1,
+          "title": "EASE: Easing Anxiety Supporting Each",
+          "status": "published",
+          "gallery": [
+            "https://yoadtwsrccryjxmspnoi.supabase.co/storage/v1/object/public/portfolio/projects/gallery/9f2c8026-6043-4bcc-9118-73c1adb73f34.png",
+            "https://yoadtwsrccryjxmspnoi.supabase.co/storage/v1/object/public/portfolio/projects/gallery/6a5aa00f-104f-4080-9e7e-6c33a8848dfe.png",
+            "https://yoadtwsrccryjxmspnoi.supabase.co/storage/v1/object/public/portfolio/projects/gallery/fc46f55f-2de3-4a33-9e15-21e7f1ce7b91.png",
+            "https://yoadtwsrccryjxmspnoi.supabase.co/storage/v1/object/public/portfolio/projects/gallery/1dba7a25-2b49-430a-a499-22ca332337c7.png",
+            "https://yoadtwsrccryjxmspnoi.supabase.co/storage/v1/object/public/portfolio/projects/gallery/32a2ee69-92a5-4535-a81b-3d3d6310e48f.png",
+            "https://yoadtwsrccryjxmspnoi.supabase.co/storage/v1/object/public/portfolio/projects/gallery/bade31f6-76ce-4729-bc3b-6b9309945ff8.png",
+            "https://yoadtwsrccryjxmspnoi.supabase.co/storage/v1/object/public/portfolio/projects/gallery/361c827d-389e-4ccf-8572-3098876f67b1.png",
+            "https://yoadtwsrccryjxmspnoi.supabase.co/storage/v1/object/public/portfolio/projects/gallery/4488384d-e780-45d8-bed0-5866627294fd.png",
+            "https://yoadtwsrccryjxmspnoi.supabase.co/storage/v1/object/public/portfolio/projects/gallery/ba875994-6448-4538-b33c-684cb2ac067a.png"
+          ],
+          "titleId": "EASE: Easing Anxiety Supporting Each",
+          "category": "Product Design",
+          "challenge": "The challenge in developing the EASE application was designing a cohesive experience for three different user roles, namely patients, doctors, and guardians, within a single platform that remains intuitive and easy to use. In addition, the team needed to ensure every design element felt empathetic rather than clinical, design a Panic Button mechanism that is quickly accessible yet not prone to accidental taps, and validate the CBT, ERP, and Somatic Experiencing therapy content so that it meets clinical standards while still being easy for lay users to understand.",
+          "mainImage": "https://yoadtwsrccryjxmspnoi.supabase.co/storage/v1/object/public/portfolio/projects/main/e9ba3a39-3a6b-4389-939d-f4e6752936d8.png",
+          "thumbnail": "https://yoadtwsrccryjxmspnoi.supabase.co/storage/v1/object/public/portfolio/projects/thumbnails/ce093ded-a555-451c-834d-8d2cfe5f6412.png",
+          "projectUrl": "https://drive.google.com/drive/folders/1yTIlRBUVIxBBvPfVtQ4dXzoqphpar4bU?usp=sharing",
+          "challengeId": "Menyeimbangkan banyak pilihan menu dengan jalur cepat menuju pembelian yang meyakinkan.",
+          "description": "EASE is a digital mental health platform designed specifically to help individuals with anxiety disorders go through a holistic recovery process. Through the Three-Way Care approach, EASE integrates patients, doctors, and guardians into one care ecosystem connected in real time, ensuring that the healing process does not happen alone but is supported by a system that is supportive, inclusive, and free of stigma.",
+          "highlighted": true,
+          "descriptionId": "Alur pemesanan yang jelas dan menarik untuk mengurangi hambatan dari pencarian hingga pembayaran."
+        },
+        {
+          "slug": "portal",
+          "order": 4,
+          "title": "Portal KM Sukabumi Utara KM.03",
+          "status": "published",
+          "gallery": [
+            "/assets/portal/2.png",
+            "/assets/portal/3.png",
+            "/assets/portal/4.png",
+            "/assets/portal/5.png",
+            "/assets/portal/6.png",
+            "/assets/portal/7.png",
+            "/assets/portal/8.png"
+          ],
+          "category": "UI/UX",
+          "challenge": "The main challenge is that residents' knowledge management is still informal, scattered across printed documents and chat groups, making it difficult to access and at risk of being lost (still at the socialization stage in the SECI model). Residents' less-than-optimal digital literacy calls for a simple interface, while a limited budget (IDR 7,000,000) and an implementation period of only four months demand efficiency from the team in designing, developing, and ensuring the portal's sustainability after the program ends.",
+          "mainImage": "/assets/portal/1.png",
+          "thumbnail": "/assets/portal/1.png",
+          "projectUrl": "https://drive.google.com/drive/folders/1NkrH-YPCKBVSV-mdi41E0aAth2zTRk-p?usp=sharing",
+          "description": "This project is the development of an AI-based Knowledge Management Portal for Karang Taruna RW 03 Sukabumi Utara, West Jakarta. The portal serves as a centralized platform for activity documentation, UMKM (small business) guides, training materials, and administrative services (introduction letters, domicile letters), equipped with an NLP chatbot, a recommendation system, automatic classification, and an analytics dashboard. Development covered activity diagrams, use case diagrams, wireframes, and a high-fidelity Figma prototype for both residents and admins, achieving a usability testing score of 4.42/5 (Very Good) from 50 respondents.",
+          "highlighted": true
+        },
+        {
+          "slug": "klinik",
+          "order": 5,
+          "title": "Klinik Pratama Sarana Sehat Sejahtera",
+          "status": "published",
+          "gallery": [
+            "/assets/klinik/2.png",
+            "/assets/klinik/3.png",
+            "/assets/klinik/4.png",
+            "/assets/klinik/5.png",
+            "/assets/klinik/6.png",
+            "/assets/klinik/7.png",
+            "/assets/klinik/8.png"
+          ],
+          "category": "UI/UX",
+          "challenge": "The challenge in developing the Management Information System for Klinik Pratama Sarana Sehat Sejahtera was integrating all of the clinic's operational processes, which had previously been carried out manually, into a single comprehensive and efficient digital system. Processes such as creating appointments, recording medical records, calculating doctor commissions, and generating monthly reports, which had been handled separately and manually, needed to be redesigned into a structured and interconnected system flow. In addition, the team also needed to ensure the system could accommodate the needs of the various actors involved, from patients, doctors, therapists, receptionists, and admins to the clinic owner, within a single platform that remained easy for all parties to use.",
+          "mainImage": "/assets/klinik/1.png",
+          "thumbnail": "/assets/klinik/1.png",
+          "projectUrl": "https://drive.google.com/drive/folders/16IkpjbYqyk3aw6WPe77gbmYY_pECAFMW?usp=sharing",
+          "description": "The Management Information System for Klinik Pratama Sarana Sehat Sejahtera is a web-based application designed to digitalize the operational processes of a clinic focused on bioresonance therapy services. This system covers four main modules: appointment management, a health forum and articles, automatic doctor commission calculation, and monthly clinic operational reports, developed up to the prototype stage, including requirements analysis, UML design, ERD, wireframes, and a high-fidelity prototype.",
+          "highlighted": false
+        },
+        {
+          "slug": "sahabatsehat",
+          "order": 6,
+          "title": "SahabatSehat",
+          "status": "published",
+          "gallery": [
+            "/assets/sahabatsehat/sahabatsehat1.png",
+            "/assets/sahabatsehat/sahabatsehat5.png",
+            "/assets/sahabatsehat/sahabatsehat2.png",
+            "/assets/sahabatsehat/sahabatsehat3.png",
+            "/assets/sahabatsehat/sahabatsehat4.png"
+          ],
+          "category": "UI/UX",
+          "challenge": "One of the main challenges in developing the SahabatSehat application was designing an interface that was genuinely easy to use for elderly users with low digital literacy. In addition, the team also faced difficulties in simplifying fairly complex health features so they remained informative without being confusing for older users.",
+          "mainImage": "/assets/sahabatsehat/sahabatsehat.png",
+          "thumbnail": "/assets/sahabatsehat/sahabatsehat.png",
+          "projectUrl": "https://drive.google.com/drive/folders/1IczR4WSUVIBeLuzD__bNXbrs_oM_8W66?usp=sharing",
+          "description": "The SahabatSehat project is a mobile health-monitoring application designed specifically for the elderly using a User-Centered Design approach, so that its interface and features are easy for older users to operate. The application helps elderly users monitor their health through features such as medication reminders, health condition logging, physical activity monitoring, and meal planning, enabling them to maintain their health independently.",
+          "highlighted": true
+        },
+        {
+          "slug": "skillfuel",
+          "order": 7,
+          "title": "SkillFuel",
+          "status": "published",
+          "gallery": [
+            "/assets/skillfuel/1.png",
+            "/assets/skillfuel/2.jpg",
+            "/assets/skillfuel/3.png",
+            "/assets/skillfuel/4.png",
+            "/assets/skillfuel/5.png"
+          ],
+          "category": "UI/UX",
+          "challenge": "The challenge in developing SkillFuel lies in the large skill gap between users and industry needs, users' limited practical experience and portfolios, and the difficulty of determining the right career path. In addition, the large number of course options leaves users feeling confused, while on the company side, the candidate screening process remains inefficient due to many irrelevant CVs and the difficulty of accurately validating candidates' abilities.",
+          "mainImage": "/assets/skillfuel/skillfuel.png",
+          "thumbnail": "/assets/skillfuel/skillfuel.png",
+          "projectUrl": "https://drive.google.com/drive/folders/1CuqU-ppIBvI8C7sT5LnYVyH_qZUPB-uk?usp=sharing",
+          "description": "SkillFuel is an AI-based career development platform that helps fresh graduates and young professionals improve their job readiness through an integrated ecosystem. The platform provides features such as an AI CV Generator, Skill Gap Analysis, project simulations, courses, mentoring, and Smart Recruiter Matching. With these features, users can build skills and portfolios and effectively obtain job opportunities that match industry needs.",
+          "highlighted": false
+        },
+        {
+          "slug": "szan",
+          "order": 8,
+          "title": "Szān",
+          "status": "published",
+          "gallery": [
+            "/assets/szan/usecase.png",
+            "/assets/szan/domain.png",
+            "/assets/szan/vpc.png",
+            "/assets/szan/bmc.png",
+            "/assets/szan/figma.png"
+          ],
+          "category": "UI/UX",
+          "challenge": "The main challenge in developing the Szān application was designing a system capable of displaying unique and varied products without making the user experience overly complicated. In addition, it was necessary to ensure that the product catalog process, the management of limited stock, and features such as the mystery box could run smoothly within the system. Another challenge was creating a simple and easy-to-use interface so that users could quickly find the products they were looking for.",
+          "mainImage": "/assets/szan/szan.png",
+          "thumbnail": "/assets/szan/szan.png",
+          "projectUrl": "https://drive.google.com/drive/folders/1VNJrUDLfbnMfaVXp-6lC3fBuBWdMr3-2?usp=sharing",
+          "description": "Szān is an online clothing store built around the concept of sustainable fashion, transforming sterilized secondhand clothing into new garments with unique designs. Each product is made from a combination of several materials, resulting in different patterns so that no two pieces of clothing are exactly alike. Besides selling various upcycled clothing items, Szān also offers products such as mystery boxes to provide a more engaging shopping experience for customers.",
+          "highlighted": false
+        },
+        {
+          "slug": "travio",
+          "order": 9,
+          "title": "Travio",
+          "status": "published",
+          "gallery": [
+            "/assets/travio/1.png",
+            "/assets/travio/2.png",
+            "/assets/travio/3.png",
+            "/assets/travio/4.png",
+            "/assets/travio/5.png",
+            "/assets/travio/6.png",
+            "/assets/travio/7.png"
+          ],
+          "category": "UI/UX",
+          "challenge": "The challenge in the Travio project was designing a system capable of integrating various travel services into a single unified platform. From this project, one can learn how to understand user needs, design business flows, create various system diagrams, and design the data structure and application interface so that all features can run in an integrated, clear manner and be easy for users to use.",
+          "mainImage": "/assets/travio/travio.png",
+          "thumbnail": "/assets/travio/travio.png",
+          "projectUrl": "https://drive.google.com/drive/folders/1pHH8-Wxrm5ckusQBbvRTKkcFbgFN3w6y?usp=sharing",
+          "description": "Travio is a mobile application that helps users plan trips more easily. Through this application, users can search for and book travel needs such as hotels, tickets for entertainment venues, vehicle rentals, and the Local Buddy service, which acts as a local guide. Travio also provides information on prices, facilities, service availability, and user reviews to support decision-making, making trips more practical and organized.",
+          "highlighted": false
+        },
+        {
+          "slug": "sitiket",
+          "order": 10,
+          "title": "SiTiket",
+          "status": "published",
+          "gallery": [
+            "/assets/sitiket/1.png",
+            "/assets/sitiket/2.png",
+            "/assets/sitiket/3.png",
+            "/assets/sitiket/4.png",
+            "/assets/sitiket/5.png",
+            "/assets/sitiket/6.png",
+            "/assets/sitiket/7.png",
+            "/assets/sitiket/8.png",
+            "/assets/sitiket/9.png",
+            "/assets/sitiket/10.png",
+            "/assets/sitiket/11.png",
+            "/assets/sitiket/12.png"
+          ],
+          "category": "Java",
+          "challenge": "The challenge in developing this project was building the integration between the JavaFX user interface and the database system so that data could be displayed and stored correctly. In addition, the developers also needed to manage the navigation flow between pages, organize the desktop application's code structure, and ensure the UI remained simple while still being easy for users to use.",
+          "mainImage": "/assets/sitiket/sitiket.png",
+          "thumbnail": "/assets/sitiket/sitiket.png",
+          "projectUrl": "https://github.com/topherware/SiTiket.git",
+          "description": "Sitiket is a desktop application project developed using the Java programming language. The application features a simple user interface built with JavaFX to make it easy for users to view information and make ticket bookings. In addition, the application is integrated with a database used to store user data, ticket data, and booking transactions in a structured manner.",
+          "highlighted": false
+        },
+        {
+          "slug": "floraartistry",
+          "order": 11,
+          "title": "FloraArtistry",
+          "status": "published",
+          "gallery": [
+            "/assets/flora/1.png",
+            "/assets/flora/2.png",
+            "/assets/flora/3.png",
+            "/assets/flora/4.png",
+            "/assets/flora/5.png",
+            "/assets/flora/6.png",
+            "/assets/flora/7.png",
+            "/assets/flora/8.png",
+            "/assets/flora/9.png",
+            "/assets/flora/10.png",
+            "/assets/flora/11.png"
+          ],
+          "category": "Java",
+          "challenge": "The challenge in developing the FloraArtistry project was integrating the JavaFX interface with the MySQL database so that user data, flower products, and transactions could be managed consistently. In addition, the developers needed to build input validation for the login, registration, and product management processes, as well as set up the navigation flow between the admin and customer pages so that the application would run properly.",
+          "mainImage": "/assets/flora/flora.png",
+          "thumbnail": "/assets/flora/flora.png",
+          "projectUrl": "https://github.com/topherware/FloraArtistry.git",
+          "description": "FloraArtistry is a desktop application project developed using the Java programming language to help manage a flower shop. The application features a simple user interface built with JavaFX and is connected to a MySQL database to store user data, flower products, shopping cart items, and purchase transactions in a structured manner.",
+          "highlighted": false
+        },
+        {
+          "slug": "domus",
+          "order": 12,
+          "title": "Domus Group",
+          "status": "published",
+          "gallery": [
+            "/assets/domus/1.png",
+            "/assets/domus/2.jpg",
+            "/assets/domus/3.jpg",
+            "/assets/domus/4.jpg",
+            "/assets/domus/5.png",
+            "/assets/domus/6.png",
+            "/assets/domus/7.png",
+            "/assets/domus/8.png"
+          ],
+          "category": "Database",
+          "challenge": "The challenge in developing the DOMUS Group database project was designing a database structure capable of integrating various business processes such as procurement, raw material stock management, suppliers, and sales transactions without causing data redundancy. In addition, proper design of relationships between entities was needed to keep data consistent, accurate, and able to efficiently support the company's operational processes.",
+          "mainImage": "/assets/domus/domus.jpg",
+          "thumbnail": "/assets/domus/domus.jpg",
+          "projectUrl": "https://drive.google.com/drive/folders/1MhwEwiV2p8gQjvQbZ5KagpCDiuyf-zVz?usp=sharing",
+          "description": "Project database DOMUS Group is the design of a database system to support the procurement and sales business processes of a furniture company. This system is designed to reduce data redundancy, integrate the recording of stock, suppliers, transactions, and invoices, and improve data management efficiency through an organized database structure that supports business operations more accurately.",
+          "highlighted": false
+        },
+        {
+          "slug": "novascript",
+          "order": 13,
+          "title": "NovaScript Academy",
+          "status": "published",
+          "gallery": [
+            "/assets/novascript/1.png",
+            "/assets/novascript/2.png",
+            "/assets/novascript/3.png",
+            "/assets/novascript/4.png",
+            "/assets/novascript/5.png",
+            "/assets/novascript/6.png"
+          ],
+          "category": "Website",
+          "challenge": "The main challenge in developing NovaScript Academy was designing a validation system for the registration process to ensure that the user data entered remained valid and secure. Validation was implemented to make sure inputs such as name, email, password, and password confirmation were filled in correctly and in accordance with the specified format. This process uses JavaScript for client-side validation and PHP for further checks on the server side.",
+          "mainImage": "/assets/novascript/novascript.png",
+          "thumbnail": "/assets/novascript/novascript.png",
+          "projectUrl": "https://github.com/topherware/Novascript-Academy.git",
+          "description": "NovaScript Academy is a coding learning website developed using HTML, CSS, JavaScript, and PHP. This platform is designed to help beginners learn the fundamentals of programming through structured video tutorials. The material currently available covers HTML, CSS, and JavaScript. The website is also designed to be further expanded with additional learning features in the future.",
+          "highlighted": false
+        },
+        {
+          "slug": "myportfolio",
+          "order": 14,
+          "title": "My Portfolio",
+          "status": "published",
+          "gallery": [
+            "/assets/portfolio/1.png",
+            "/assets/portfolio/2.png",
+            "/assets/portfolio/3.png",
+            "/assets/portfolio/4.png",
+            "/assets/portfolio/5.png",
+            "/assets/portfolio/6.png",
+            "/assets/portfolio/7.png",
+            "/assets/portfolio/8.png"
+          ],
+          "category": "Website",
+          "challenge": "The main challenge in developing this portfolio website was designing a look that is simple yet still attractive and professional. In addition, careful layout, animation, and responsive navigation were needed so that each section, such as projects, certificates, and contact, could be displayed neatly and be easily accessible to visitors.",
+          "mainImage": "/assets/portfolio/portfolio.png",
+          "thumbnail": "/assets/portfolio/portfolio.png",
+          "projectUrl": "https://github.com/topherware/chrisportfoliowebsite.git",
+          "description": "This portfolio website showcases my profile, experience, and various projects I have worked on in the fields of technology and product development. Built using HTML, CSS, and JavaScript, the website is designed with a modern and responsive look. Each project includes a description, documentation, and a source code link to demonstrate the development process and the technical skills I possess.",
+          "highlighted": false
+        }
+      ],
+      "services": [
+        {
+          "title": "UI/UX Design",
+          "imageUrl": "",
+          "description": "Interfaces shaped around real user needs."
+        },
+        {
+          "title": "Web Design",
+          "imageUrl": "",
+          "description": "Responsive product and marketing experiences."
+        },
+        {
+          "title": "Landing Pages",
+          "imageUrl": "",
+          "description": "Focused stories that turn attention into action."
+        }
+      ],
+      "experiences": [
+        {
+          "title": "Product Manager Intern",
+          "skills": [
+            "Product Management",
+            "Business Analysis",
+            "Data Analysis",
+            "Cross-functional Collaboration",
+            "Agile Methodology"
+          ],
+          "status": "published",
+          "current": true,
+          "titleId": "Lead Desainer Produk",
+          "category": "Work",
+          "endMonth": "",
+          "startMonth": "2026-09",
+          "description": "Supported end-to-end product development, from requirement gathering to feature implementation.\nTranslated business needs into clear product requirements and collaborated with cross-functional teams to deliver product solutions.\nAnalyzed product performance, user funnels, and key metrics to identify insights and recommend data-driven improvements.\nAssisted in planning and evaluating product experiments to validate features and enhance user experience.\nIdentified opportunities to improve business processes through workflow optimization and system integration initiatives.",
+          "descriptions": [
+            "Supported end-to-end product development, from requirement gathering to feature implementation.",
+            "Translated business needs into clear product requirements and collaborated with cross-functional teams to deliver product solutions.",
+            "Analyzed product performance, user funnels, and key metrics to identify insights and recommend data-driven improvements.",
+            "Assisted in planning and evaluating product experiments to validate features and enhance user experience.",
+            "Identified opportunities to improve business processes through workflow optimization and system integration initiatives."
+          ],
+          "organization": "PT. Global Digital Niaga (Blibli.com)",
+          "descriptionsId": [
+            "Memimpin desain produk end-to-end dari riset, sistem, hingga delivery."
+          ]
+        },
+        {
+          "order": 1,
+          "title": "Advisory Board of HIMSISFO",
+          "skills": [
+            "Communication",
+            "Team Collaboration",
+            "Critical Thinking",
+            "Leadership"
+          ],
+          "status": "published",
+          "current": true,
+          "category": "Organizational",
+          "endMonth": "",
+          "startMonth": "2026-02",
+          "descriptions": [
+            "Provided strategic direction and input to the HIMSISFO management board.",
+            "Oversaw the implementation of work programs to ensure alignment with the organization's vision and mission.",
+            "Served as a mediator in resolving internal organizational conflicts.",
+            "Provided evaluations and recommendations to improve the performance of the management board."
+          ],
+          "legacyPeriod": "February 2026 - Present",
+          "organization": ""
+        },
+        {
+          "order": 2,
+          "title": "LDKKA HIMSISFO 2026: IGNITE – Person in Charge (PIC) of Group",
+          "skills": [
+            "Leadership",
+            "Team Coordination",
+            "Responsibility",
+            "Communication",
+            "Problem Solving"
+          ],
+          "status": "published",
+          "current": false,
+          "category": "Volunteer",
+          "endMonth": "2025-12",
+          "startMonth": "2025-12",
+          "descriptions": [
+            "Responsible as group PIC during the LDKKA activity in Bogor (2 days 1 night).",
+            "Directed and coordinated 10 group members throughout the entire series of activities.",
+            "Monitored discipline and ensured members followed all program activities.",
+            "Ensured the safety, health, and comfort of group members during the activity."
+          ],
+          "legacyPeriod": "December 2025",
+          "organization": ""
+        },
+        {
+          "order": 3,
+          "title": "Vice Project Manager of BALON HIMSISFO 2025: GEMS",
+          "skills": [
+            "Project Management",
+            "Leadership",
+            "Team Coordination",
+            "Problem Solving",
+            "Communication"
+          ],
+          "status": "published",
+          "current": false,
+          "category": "Leadership",
+          "endMonth": "2025-10",
+          "startMonth": "2025-06",
+          "descriptions": [
+            "Supported the planning and execution of the BALON HIMSISFO 2025 program.",
+            "Helped coordinate the team and activities for the selection of HIMSISFO's Chairperson candidates.",
+            "Monitored the timeline and ensured each division worked according to plan.",
+            "Supported the evaluation process and activities assessing the candidates' readiness and leadership vision."
+          ],
+          "legacyPeriod": "June 2025 - October 2025",
+          "organization": ""
+        },
+        {
+          "order": 4,
+          "title": "Product Manager Intern at PT. Global Digital Niaga (Blibli.com)",
+          "skills": [
+            "Product Management",
+            "Business Analysis",
+            "Data Analysis",
+            "Cross-functional Collaboration",
+            "Agile Methodology"
+          ],
+          "status": "published",
+          "current": true,
+          "category": "Work",
+          "endMonth": "",
+          "startMonth": "2026-08",
+          "descriptions": [
+            "Supported end-to-end product development, from requirement gathering to feature implementation.",
+            "Translated business needs into clear product requirements and collaborated with cross-functional teams to deliver product solutions.",
+            "Analyzed product performance, user funnels, and key metrics to identify insights and recommend data-driven improvements.",
+            "Assisted in planning and evaluating product experiments to validate features and enhance user experience.",
+            "Identified opportunities to improve business processes through workflow optimization and system integration initiatives."
+          ],
+          "legacyPeriod": "August 2026 - Present",
+          "organization": ""
+        },
+        {
+          "order": 5,
+          "title": "SASC Scholarship Senior Mentor Awardee - Even Period 2025/2026",
+          "skills": [
+            "Mentoring",
+            "Leadership",
+            "Communication",
+            "Academic Guidance"
+          ],
+          "status": "published",
+          "current": false,
+          "category": "University",
+          "endMonth": "2026-07",
+          "startMonth": "2026-01",
+          "descriptions": [
+            "Re-selected as a mentor through the SASC Scholarship Mentor program.",
+            "Entrusted to continue the mentoring role based on strong results from the previous program.",
+            "Guided students in facing academic challenges and improving their learning performance.",
+            "Guided students in facing academic challenges and improving their learning performance."
+          ],
+          "legacyPeriod": "January 2026 - July 2026",
+          "organization": ""
+        },
+        {
+          "order": 6,
+          "title": "SASC Scholarship Mentor Awardee - Odd Period 2025/2026",
+          "skills": [
+            "Mentoring",
+            "Leadership",
+            "Communication",
+            "Academic Guidance"
+          ],
+          "status": "published",
+          "current": false,
+          "category": "University",
+          "endMonth": "2026-01",
+          "startMonth": "2025-07",
+          "descriptions": [
+            "Selected as a Scholarship Mentor with a GPA above 3.5 and no grade below B.",
+            "Mentored 1 student as a mentee in facing academic challenges.",
+            "Provided guidance and support to help improve academic performance.",
+            "Fostered a collaborative and supportive learning environment."
+          ],
+          "legacyPeriod": "July 2025 - January 2026",
+          "organization": ""
+        },
+        {
+          "order": 7,
+          "title": "Vice Project Manager of LDKCP HIMSISFO 2025: WIND",
+          "skills": [
+            "Organizational Management",
+            "Leadership",
+            "Team Coordination",
+            "Problem Solving",
+            "Communication"
+          ],
+          "status": "published",
+          "current": false,
+          "category": "Leadership",
+          "endMonth": "2025-06",
+          "startMonth": "2025-03",
+          "descriptions": [
+            "Supported the planning and execution of the LDKCP program for prospective HIMSISFO board members.",
+            "Assisted the Project Manager in coordinating the team and program activities.",
+            "Oversaw the workflow between divisions to ensure the program ran according to plan.",
+            "Supported activities focused on developing leadership and organizational skills."
+          ],
+          "legacyPeriod": "March 2025 - June 2025",
+          "organization": ""
+        },
+        {
+          "order": 8,
+          "title": "SELCAVIS HIMSISFO 2025: PRODIGY – Volunteer Interviewer",
+          "skills": [
+            "Communication",
+            "Interviewing",
+            "Critical Thinking",
+            "Team Collaboration"
+          ],
+          "status": "published",
+          "current": false,
+          "category": "Volunteer",
+          "endMonth": "2025-10",
+          "startMonth": "2025-10",
+          "descriptions": [
+            "Served as an interviewer in the selection process for new HIMSISFO activists.",
+            "Conducted structured interviews to assess candidates' leadership potential, organizational motivation, and teamwork ability.",
+            "Worked with the organizing team to ensure the selection process was objective and of high quality.",
+            "Supported candidate evaluation based on established assessment standards."
+          ],
+          "legacyPeriod": "October 2025",
+          "organization": ""
+        },
+        {
+          "order": 9,
+          "title": "Staff of Commission 4 - Human Resource Development",
+          "skills": [
+            "Human Resource Development",
+            "Team Collaboration",
+            "Communication",
+            "Organizational Support"
+          ],
+          "status": "published",
+          "current": false,
+          "category": "Organizational",
+          "endMonth": "2026-02",
+          "startMonth": "2025-02",
+          "descriptions": [
+            "Served as a Commission 4 staff member focused on developing the organization's human resource quality.",
+            "Supported programs aimed at improving members' competencies and development.",
+            "Helped maintain positive relationships and collaboration among organization members.",
+            "Supported the creation of a healthy and productive organizational environment."
+          ],
+          "legacyPeriod": "February 2025 - February 2026",
+          "organization": ""
+        },
+        {
+          "order": 10,
+          "title": "Binusian 2028 Freshmen Partner",
+          "skills": [
+            "Mentoring",
+            "Communication",
+            "Leadership",
+            "Interpersonal Skill"
+          ],
+          "status": "published",
+          "current": false,
+          "category": "University",
+          "endMonth": "2025-06",
+          "startMonth": "2024-09",
+          "descriptions": [
+            "Guided and accompanied 7 new students during their first year at BINUS University.",
+            "Provided guidance on both academic and non-academic matters within the campus environment.",
+            "Helped new students adapt to university life.",
+            "Served as a point of consultation and support for freshmen during their transition into university life."
+          ],
+          "legacyPeriod": "September 2024 - June 2025",
+          "organization": ""
+        },
+        {
+          "order": 11,
+          "title": "Project Manager of Farewell Party & Yearbook HIMSISFO 2025: TIME",
+          "skills": [
+            "Project Management",
+            "Leadership",
+            "Team Coordination",
+            "Problem Solving",
+            "Communication"
+          ],
+          "status": "published",
+          "current": false,
+          "category": "Leadership",
+          "endMonth": "2025-03",
+          "startMonth": "2024-03",
+          "descriptions": [
+            "Planned and managed the Farewell Party and Yearbook HIMSISFO 2024/2025 program.",
+            "Planned and managed the Farewell Party and Yearbook HIMSISFO 2024/2025 program.",
+            "Coordinated various divisions to ensure smooth collaboration.",
+            "Managed the project timeline and task allocation during program preparation."
+          ],
+          "legacyPeriod": "March 2024 - March 2025",
+          "organization": ""
+        },
+        {
+          "order": 12,
+          "title": "Advisory Board of Farewell Party & Yearbook HIMSISFO 2026: FILM",
+          "skills": [
+            "Strategic Thinking",
+            "Mentoring",
+            "Leadership",
+            "Organizational Insight"
+          ],
+          "status": "published",
+          "current": false,
+          "category": "Organizational",
+          "endMonth": "2026-02",
+          "startMonth": "2025-02",
+          "descriptions": [
+            "Served as a member of the Advisory Board for the Farewell Party & Yearbook HIMSISFO program.",
+            "Provided direction and input to the committee during the activity planning process.",
+            "Reviewed the program plan and ensured implementation met organizational standards.",
+            "Supported the smooth production of the yearbook and the execution of the farewell event."
+          ],
+          "legacyPeriod": "February 2025 - February 2026",
+          "organization": ""
+        },
+        {
+          "order": 13,
+          "title": "Tree Planting Activity at SDN 1 Johar Baru, Central Jakarta",
+          "skills": [
+            "Teamwork",
+            "Environmental Awareness",
+            "Collaboration",
+            "Social Responsibility"
+          ],
+          "status": "published",
+          "current": false,
+          "category": "Volunteer",
+          "endMonth": "2025-10",
+          "startMonth": "2025-10",
+          "descriptions": [
+            "Participated as a volunteer in a tree-planting activity within the school environment.",
+            "Worked with the team to plant and care for tree seedlings on the school grounds.",
+            "Supported efforts to raise students' awareness of the importance of protecting the environment."
+          ],
+          "legacyPeriod": "October 2025",
+          "organization": ""
+        },
+        {
+          "order": 14,
+          "title": "Binusian 2028 Freshmen Leader",
+          "skills": [
+            "Leadership",
+            "Communication",
+            "Mentoring",
+            "Team Coordination"
+          ],
+          "status": "published",
+          "current": false,
+          "category": "University",
+          "endMonth": "2024-08",
+          "startMonth": "2024-08",
+          "descriptions": [
+            "Accompanied new students during five days of orientation at BINUS University.",
+            "Guided freshmen in completing orientation tasks and activities.",
+            "Provided information and answered questions related to academic and campus life.",
+            "Helped new students adapt to the university environment."
+          ],
+          "legacyPeriod": "August 2024",
+          "organization": ""
+        },
+        {
+          "order": 15,
+          "title": "Environmental Cleanup Action at Lapangan Banteng, Jakarta",
+          "skills": [
+            "Teamwork",
+            "Environmental Awareness",
+            "Collaboration",
+            "Social Responsibility"
+          ],
+          "status": "published",
+          "current": false,
+          "category": "Volunteer",
+          "endMonth": "2025-06",
+          "startMonth": "2025-06",
+          "descriptions": [
+            "Participated as a volunteer in an environmental cleanup activity at Lapangan Banteng.",
+            "Collected and sorted waste together with other volunteers to maintain the cleanliness of the public area.",
+            "Supported efforts to raise public awareness of the importance of protecting the environment."
+          ],
+          "legacyPeriod": "June 2025",
+          "organization": ""
+        },
+        {
+          "order": 16,
+          "title": "Advisory Board of GERAK HIMSISFO 2025: DIVE",
+          "skills": [
+            "Strategic Thinking",
+            "Mentoring",
+            "Leadership",
+            "Organizational Insight"
+          ],
+          "status": "published",
+          "current": false,
+          "category": "Organizational",
+          "endMonth": "2025-05",
+          "startMonth": "2025-02",
+          "descriptions": [
+            "Served as a member of the advisory board for the GERAK HIMSISFO program.",
+            "Provided strategic direction to support the planning and execution of the program.",
+            "Guided the committee through the preparation and development of work programs.",
+            "Provided input to ensure activities aligned with the organization's goals."
+          ],
+          "legacyPeriod": "February 2025 - May 2025",
+          "organization": ""
+        },
+        {
+          "order": 17,
+          "title": "Activist of Commission 3 - Information",
+          "skills": [
+            "Graphic Design",
+            "Video Editing",
+            "Photography",
+            "Creative Communication"
+          ],
+          "status": "published",
+          "current": false,
+          "category": "Organizational",
+          "endMonth": "2025-02",
+          "startMonth": "2024-01",
+          "descriptions": [
+            "Served as an activist in Commission 3, focused on media and information.",
+            "Created graphic designs to support the organization's visual program needs.",
+            "Documented activities through photography and media content capture.",
+            "Edited videos for publication and documentation of organizational activities."
+          ],
+          "legacyPeriod": "January 2024 - February 2025",
+          "organization": ""
+        },
+        {
+          "order": 18,
+          "title": "Sidewalk Painting Action at Jalan Sulaiman, Kemanggisan",
+          "skills": [
+            "Teamwork",
+            "Collaboration",
+            "Community Engagement",
+            "Social Responsibility"
+          ],
+          "status": "published",
+          "current": false,
+          "category": "Volunteer",
+          "endMonth": "2025-05",
+          "startMonth": "2025-05",
+          "descriptions": [
+            "Participated as a volunteer in a sidewalk-painting activity in the Jalan Sulaiman, Kemanggisan area.",
+            "Worked with the team to improve the appearance and visibility of the sidewalk for pedestrians.",
+            "Supported efforts to maintain the tidiness and comfort of public facilities in the surrounding area."
+          ],
+          "legacyPeriod": "May 2025",
+          "organization": ""
+        },
+        {
+          "order": 19,
+          "title": "Social Autonomy Outreach at MAS Istiqlal Jakarta",
+          "skills": [
+            "Leadership",
+            "Public Speaking",
+            "Team Coordination",
+            "Communication"
+          ],
+          "status": "published",
+          "current": false,
+          "category": "Volunteer",
+          "endMonth": "2024-05",
+          "startMonth": "2024-05",
+          "descriptions": [
+            "Led a team in carrying out an outreach activity for 12th grade students.",
+            "Coordinated material preparation and task division within the team.",
+            "Presented material on the concept of social autonomy in Indonesia.",
+            "Facilitated discussion to improve students' understanding and participation."
+          ],
+          "legacyPeriod": "May 2024",
+          "organization": ""
+        },
+        {
+          "order": 20,
+          "title": "Equipment Staff of LDKKA HIMSISFO 2025: GROWTH",
+          "skills": [
+            "Teamwork",
+            "Event Operations",
+            "Technical Coordination",
+            "Communication"
+          ],
+          "status": "published",
+          "current": false,
+          "category": "Organizational",
+          "endMonth": "2025-01",
+          "startMonth": "2024-05",
+          "descriptions": [
+            "Served as an Equipment Division staff member during the execution of the LDKKA HIMSISFO program.",
+            "Prepared and ensured the availability of equipment and technical requirements for the activity.",
+            "Arranged the venue layout to ensure the event ran smoothly and efficiently.",
+            "Supported mobilization and logistics coordination for the smooth operation of the event."
+          ],
+          "legacyPeriod": "May 2024 - January 2025",
+          "organization": ""
+        },
+        {
+          "order": 21,
+          "title": "Equipment Staff of SELCAVIS HIMSISFO 2024: BANGER",
+          "skills": [
+            "Teamwork",
+            "Event Operations",
+            "Technical Coordination",
+            "Communication"
+          ],
+          "status": "published",
+          "current": false,
+          "category": "Organizational",
+          "endMonth": "2024-10",
+          "startMonth": "2024-05",
+          "descriptions": [
+            "Served as an Equipment Division staff member during the execution of the SELCAVIS HIMSISFO program.",
+            "Prepared and managed equipment and technical requirements for the event.",
+            "Arranged the venue layout to ensure the event ran smoothly and efficiently.",
+            "Supported technical preparations for live streaming needs throughout the event."
+          ],
+          "legacyPeriod": "May 2024 - October 2024",
+          "organization": ""
+        },
+        {
+          "order": 22,
+          "title": "Anti-Corruption Awareness Outreach at MAS Istiqlal Jakarta",
+          "skills": [
+            "Public Speaking",
+            "Communication",
+            "Teamwork",
+            "Social Awareness"
+          ],
+          "status": "published",
+          "current": false,
+          "category": "Volunteer",
+          "endMonth": "2023-10",
+          "startMonth": "2023-10",
+          "descriptions": [
+            "Participated as a team member in an anti-corruption awareness activity.",
+            "Presented material to 11th grade students on the dangers of corruption and the importance of integrity.",
+            "Supported the presentation and interactive discussion with participants.",
+            "Contributed to raising students' awareness of the values of transparency and accountability."
+          ],
+          "legacyPeriod": "October 2023",
+          "organization": ""
+        },
+        {
+          "order": 23,
+          "title": "Support Staff of Birthday Party HIMSISFO 2024: WONDER",
+          "skills": [
+            "Teamwork",
+            "Event Coordination",
+            "Communication",
+            "Problem Solving"
+          ],
+          "status": "published",
+          "current": false,
+          "category": "Organizational",
+          "endMonth": "2024-06",
+          "startMonth": "2024-05",
+          "descriptions": [
+            "Served as a Support Division staff member during the execution of the HIMSISFO Birthday Party event.",
+            "Supported event operations through broadcasting and refreshments.",
+            "Helped ensure the event's logistical needs were properly met.",
+            "Contributed to the smooth execution of the activity and the overall event experience for members."
+          ],
+          "legacyPeriod": "May 2024 - June 2024",
+          "organization": ""
+        }
+      ],
+      "certificates": [
+        {
+          "year": "2025",
+          "order": 1,
+          "title": "Runner-Up National UI/UX Design Competition TechnoDay UNNES 2025",
+          "issuer": "Universitas Negeri Semarang",
+          "status": "published",
+          "titleId": "Desain Produk Berpusat pada Manusia",
+          "category": "Competition",
+          "imageUrl": "https://yoadtwsrccryjxmspnoi.supabase.co/storage/v1/object/public/portfolio/certificates/59aec598-7486-4898-b9e7-5591052b2612.jpg",
+          "categoryId": "Perlombaan"
+        },
+        {
+          "year": "",
+          "order": 2,
+          "title": "Finalist - International UI/UX Competition Hackfest Universitas Ciputra 2026",
+          "issuer": "",
+          "status": "published",
+          "category": "Competition",
+          "imageUrl": "/assets/cert/certificate11.jpg",
+          "credentialUrl": ""
+        },
+        {
+          "year": "",
+          "order": 3,
+          "title": "Binus University Appreciation Day 2026",
+          "issuer": "",
+          "status": "published",
+          "category": "University",
+          "imageUrl": "/assets/cert/certificate12.jpeg",
+          "credentialUrl": ""
+        },
+        {
+          "year": "",
+          "order": 4,
+          "title": "School of Information System Appreciation Day 2025",
+          "issuer": "",
+          "status": "published",
+          "category": "University",
+          "imageUrl": "/assets/cert/certificate1.jpg",
+          "credentialUrl": ""
+        },
+        {
+          "year": "",
+          "order": 5,
+          "title": "Dean's List Certificate of Oustanding Academic Achievement 2025",
+          "issuer": "",
+          "status": "published",
+          "category": "University",
+          "imageUrl": "/assets/cert/certificate6.jpg",
+          "credentialUrl": ""
+        },
+        {
+          "year": "",
+          "order": 6,
+          "title": "HashMicro Human Resource Management Software",
+          "issuer": "",
+          "status": "published",
+          "category": "Software",
+          "imageUrl": "/assets/cert/certificate3.jpg",
+          "credentialUrl": ""
+        },
+        {
+          "year": "",
+          "order": 7,
+          "title": "Machine Learning A-Z Certificate of Completion",
+          "issuer": "",
+          "status": "published",
+          "category": "Course",
+          "imageUrl": "/assets/cert/certificate4.jpg",
+          "credentialUrl": ""
+        },
+        {
+          "year": "",
+          "order": 8,
+          "title": "Binusian 2028 Freshmen Partner Certificate of Appreciation",
+          "issuer": "",
+          "status": "published",
+          "category": "University",
+          "imageUrl": "/assets/cert/certificate5.jpg",
+          "credentialUrl": ""
+        },
+        {
+          "year": "",
+          "order": 9,
+          "title": "Vice Project Manager HIMSISFO BALON 2025: GEMS Certificate of Contribution",
+          "issuer": "",
+          "status": "published",
+          "category": "Organization",
+          "imageUrl": "/assets/cert/certificate7.jpeg",
+          "credentialUrl": ""
+        },
+        {
+          "year": "",
+          "order": 10,
+          "title": "Vice Project Manager HIMSISFO LDKCP 2025: WIND Certificate of Contribution",
+          "issuer": "",
+          "status": "published",
+          "category": "Organization",
+          "imageUrl": "/assets/cert/certificate9.jpeg",
+          "credentialUrl": ""
+        },
+        {
+          "year": "",
+          "order": 11,
+          "title": "Event Advisor of HIMSISFO Farewell Party & Yearbook 2026: FILM Certificate of Contribution",
+          "issuer": "",
+          "status": "published",
+          "category": "Organization",
+          "imageUrl": "/assets/cert/certificate10.jpeg",
+          "credentialUrl": ""
+        },
+        {
+          "year": "",
+          "order": 12,
+          "title": "Event Advisor of HIMSISFO GERAK 2025: DIVE Certificate of Contribution",
+          "issuer": "",
+          "status": "published",
+          "category": "Organization",
+          "imageUrl": "/assets/cert/certificate8.jpeg",
+          "credentialUrl": ""
+        }
+      ],
+      "testimonials": [
+        {
+          "name": "Product teammate",
+          "order": 1,
+          "quote": "A rare designer who can simplify a difficult problem without flattening its ambition.",
+          "status": "published",
+          "context": "Cross-functional collaboration",
+          "quoteId": "Desainer langka yang mampu menyederhanakan masalah sulit tanpa mengurangi ambisinya.",
+          "contextId": "Kolaborasi lintas fungsi"
+        },
+        {
+          "name": "Engineering teammate",
+          "order": 2,
+          "quote": "Clear decisions, excellent systems thinking, and a handoff our team could implement with confidence.",
+          "status": "published",
+          "context": "Design and engineering collaboration",
+          "quoteId": "Keputusan yang jelas, pemikiran sistem yang kuat, dan handoff yang dapat diterapkan tim kami dengan percaya diri.",
+          "contextId": "Kolaborasi desain dan engineering"
+        }
+      ],
+      "certificateTitle": "Certificates & recognition",
+      "testimonialTitle": "What they say about me",
+      "projectCategories": [
+        "All",
+        "Product Design",
+        "Landing Page",
+        "Mobile App",
+        "UI/UX",
+        "Java",
+        "Database",
+        "Website"
+      ],
+      "certificateTitleId": "Sertifikat & penghargaan",
+      "experiencePhotoUrl": "https://yoadtwsrccryjxmspnoi.supabase.co/storage/v1/object/public/portfolio/experience/17c0e42d-8cb2-4693-9958-41da392035c2.png",
+      "testimonialTitleId": "Apa kata mereka tentang saya",
+      "certificateSubtitle": "A record of continued learning and professional practice.",
+      "testimonialSubtitle": "Notes from people I have collaborated with across product strategy, design systems, and delivery.",
+      "categoryTranslations": {
+        "project": {
+          "All": "Semua",
+          "Mobile App": "Aplikasi Mobile",
+          "Landing Page": "Landing Page",
+          "Product Design": "Desain Produk"
+        },
+        "experience": {
+          "All": "Semua",
+          "Work": "Kerja"
+        }
+      },
+      "experienceCategories": [
+        "All",
+        "Work",
+        "Organizational",
+        "Volunteer",
+        "Leadership",
+        "University"
+      ],
+      "certificateSubtitleId": "Catatan pembelajaran berkelanjutan dan praktik profesional.",
+      "testimonialSubtitleId": "Catatan dari orang-orang yang pernah berkolaborasi dengan saya dalam strategi produk, sistem desain, dan delivery."
+    },
+    "updated_at": "2026-10-06T07:02:10.532+00:00"
+  }
+]

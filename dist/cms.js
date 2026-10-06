@@ -1,3 +1,5 @@
+import { applyIndonesianTranslations } from "./portfolio-indonesian.js";
+
 const demoContent = {
   site: {
     name: "Your Portfolio",
@@ -224,7 +226,7 @@ function normalizeContent(content) {
     status: testimonial.status || "published",
     order: testimonial.order || index + 1,
   }));
-  return normalized;
+  return applyIndonesianTranslations(normalized);
 }
 
 const cleanUrl = (value) => {
@@ -260,9 +262,13 @@ export async function loadContentRecord(token = "") {
   if (!response.ok) throw new Error(`CMS load failed (${response.status})`);
   const rows = await response.json();
   if (token && !rows.length) throw new Error(missingSiteMessage);
+  const original = rows[0]?.content || structuredClone(demoContent);
+  const previousImportVersion = original.indonesianImportVersion;
+  const content = normalizeContent(original);
   return {
-    content: normalizeContent(rows[0]?.content || structuredClone(demoContent)),
+    content,
     updatedAt: rows[0]?.updated_at || "",
+    preparedTranslations: content.indonesianImportVersion !== previousImportVersion,
   };
 }
 

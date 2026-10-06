@@ -201,7 +201,9 @@ function renderLogin(message = "") {
       const record = await loadContentRecord(state.token);
       state.content = record.content;
       state.updatedAt = record.updatedAt;
+      state.dirty = Boolean(record.preparedTranslations);
       renderAdmin();
+      if (record.preparedTranslations) showNotice("Indonesian translations are ready in the editor. Save changes to store them in the CMS.");
     } catch (error) {
       renderLogin(error.message);
     }
@@ -417,7 +419,7 @@ function renderAdmin() {
   ];
   root.innerHTML = `<div class="admin-shell">
     <aside class="admin-sidebar" id="admin-sidebar"><div class="admin-brand">${customerLogo ? `<img class="admin-customer-logo" src="${safe(customerLogo)}" alt="Customer logo" /><span class="admin-brand-fallback" hidden>P</span>` : '<span class="admin-brand-fallback">P</span>'}<span>Portfolio CMS</span></div><nav class="admin-menu">${menus.map(([key, label]) => `<button class="${state.active === key ? "active" : ""}" type="button" data-tab="${key}">${label}</button>`).join("")}</nav><div class="sidebar-footer"><a class="sidebar-action" href="../index.html" target="_blank">View portfolio</a><button class="sidebar-action" id="logout" type="button">Sign out</button></div></aside>
-    <main class="admin-main"><header class="admin-topbar"><div><button class="mobile-admin-toggle" id="mobile-admin-toggle" type="button" aria-label="Open menu">&#9776;</button><div><p class="eyebrow">Content dashboard</p><h1>${safe(menus.find(([key]) => key === state.active)?.[1] || "Dashboard")}</h1><p id="save-indicator">${state.demo ? "Preview mode - saving disabled" : safe(state.user)}</p></div></div><div class="admin-actions"><label class="admin-language-toggle" id="admin-language-toggle"><span class="language-toggle-copy"><strong>Enable Indonesian & English</strong><small>${bilingualEnabled() ? "Bilingual mode" : "English only"}</small></span><input type="checkbox" data-bind="site.languages.enabled" data-refresh-admin ${bilingualEnabled() ? "checked" : ""} aria-label="Enable bilingual editing" /><span class="toggle-track" aria-hidden="true"><span></span></span></label><button class="button button--outline" id="discard" type="button">Discard</button><button class="button" id="save" type="button">Save changes</button></div></header>
+    <main class="admin-main"><header class="admin-topbar"><div><button class="mobile-admin-toggle" id="mobile-admin-toggle" type="button" aria-label="Open menu">&#9776;</button><div><p class="eyebrow">Content dashboard</p><h1>${safe(menus.find(([key]) => key === state.active)?.[1] || "Dashboard")}</h1><p id="save-indicator">${state.demo ? "Preview mode - saving disabled" : state.dirty ? "Unsaved changes" : safe(state.user)}</p></div></div><div class="admin-actions"><label class="admin-language-toggle" id="admin-language-toggle"><span class="language-toggle-copy"><strong>Enable Indonesian & English</strong><small>${bilingualEnabled() ? "Bilingual mode" : "English only"}</small></span><input type="checkbox" data-bind="site.languages.enabled" data-refresh-admin ${bilingualEnabled() ? "checked" : ""} aria-label="Enable bilingual editing" /><span class="toggle-track" aria-hidden="true"><span></span></span></label><button class="button button--outline" id="discard" type="button">Discard</button><button class="button" id="save" type="button">Save changes</button></div></header>
       <div id="notice-area"></div>
       ${homePanel()}${aboutPanel()}${listPanel("projects", "Projects", "Manage publishing, highlights, category filters, ordering, and project media.")}${certificatesPanel()}${listPanel("experience", "Experience", "Current roles are displayed first, followed by the latest end and start dates.")}${testimonialsPanel()}${contactPanel()}${settingsPanel()}
     </main></div><div id="modal-root"></div>`;
@@ -488,14 +490,15 @@ function bindAdminEvents() {
   document.querySelector("#save-socials")?.addEventListener("click", persist);
   document.querySelector("#discard")?.addEventListener("click", async () => {
     const discardChanges = async () => {
+      state.dirty = false;
       if (state.demo) {
         state.content = normalizeContent(structuredClone(demoContent));
       } else {
         const record = await loadContentRecord(state.token);
         state.content = record.content;
         state.updatedAt = record.updatedAt;
+        state.dirty = Boolean(record.preparedTranslations);
       }
-      state.dirty = false;
       renderAdmin();
     };
     if (!state.dirty) {
@@ -603,8 +606,8 @@ function deleteCategory(categoryKey, category) {
 function newItem(type) {
   if (type === "projects") return { title: "", titleId: "", slug: "", category: state.content.projectCategories?.[1] || "", description: "", descriptionId: "", challenge: "", challengeId: "", projectUrl: "", mainImage: "", thumbnail: "", gallery: [], highlighted: false, status: "draft", order: itemArray(type).length + 1 };
   if (type === "certificates") return { title: "", titleId: "", category: "", categoryId: "", issuer: "", year: "", imageUrl: "", status: "draft", order: itemArray(type).length + 1 };
-  if (type === "testimonials") return { name: "", context: "", contextId: "", quote: "", quoteId: "", status: "draft", order: itemArray(type).length + 1 };
-  return { title: "", titleId: "", organization: "", startMonth: "", endMonth: "", current: false, descriptions: [], descriptionsId: [], skills: [], category: state.content.experienceCategories?.[1] || "", status: "draft" };
+  if (type === "testimonials") return { name: "", nameId: "", context: "", contextId: "", quote: "", quoteId: "", status: "draft", order: itemArray(type).length + 1 };
+  return { title: "", titleId: "", organization: "", startMonth: "", endMonth: "", current: false, descriptions: [], descriptionsId: [], skills: [], skillsId: [], category: state.content.experienceCategories?.[1] || "", status: "draft" };
 }
 
 function openEditor(type, index = -1) {
@@ -618,10 +621,10 @@ function openEditor(type, index = -1) {
   } else if (type === "certificates") {
     fields = `${translatableDirectField("Title", "title", current)}${translatableDirectField("Category", "category", current)}${directField("Issuer", "issuer", current.issuer)}${directField("Publication year", "year", current.year, { type: "number" })}${commonStatus}${modalUploadField("Certificate photo", "certificateFile", { wide: true, savedCount: current.imageUrl ? 1 : 0, guidance: "Recommended 1600 x 1100 px. Selecting a new photo replaces the current one." })}`;
   } else if (type === "testimonials") {
-    fields = `${directField("Name or attribution", "name", current.name)}${translatableDirectField("Collaboration context", "context", current)}${commonStatus}${translatableDirectField("Feedback", "quote", current, { type: "textarea", wide: true })}`;
+    fields = `${translatableDirectField("Name or attribution", "name", current)}${translatableDirectField("Collaboration context", "context", current)}${commonStatus}${translatableDirectField("Feedback", "quote", current, { type: "textarea", wide: true })}`;
   } else {
     const descriptions = current.descriptions?.length ? current.descriptions : String(current.description || "").split(/\n+/).filter(Boolean);
-    fields = `${translatableDirectField("Job title", "title", current)}${directField("Organization", "organization", current.organization)}${directSelect("Category", "category", current.category, (state.content.experienceCategories || []).filter((category) => category !== "All"))}${commonStatus}${directField("Start month", "startMonth", current.startMonth, { type: "month" })}${directField("End month", "endMonth", current.endMonth, { type: "month" })}${directField("Current position", "current", current.current, { type: "checkbox", wide: true })}${translatableRepeatableField("Description points", "descriptions", "descriptionsId", descriptions, current.descriptionsId || [], "Add a responsibility, outcome, or scope", "Tambahkan tanggung jawab, hasil, atau ruang lingkup")}${repeatableField("Skills", "skills", current.skills || [], "Add a skill")}`;
+    fields = `${translatableDirectField("Job title", "title", current)}${directField("Organization", "organization", current.organization)}${directSelect("Category", "category", current.category, (state.content.experienceCategories || []).filter((category) => category !== "All"))}${commonStatus}${directField("Start month", "startMonth", current.startMonth, { type: "month" })}${directField("End month", "endMonth", current.endMonth, { type: "month" })}${directField("Current position", "current", current.current, { type: "checkbox", wide: true })}${translatableRepeatableField("Description points", "descriptions", "descriptionsId", descriptions, current.descriptionsId || [], "Add a responsibility, outcome, or scope", "Tambahkan tanggung jawab, hasil, atau ruang lingkup")}${translatableRepeatableField("Skills", "skills", "skillsId", current.skills || [], current.skillsId || [], "Add a skill", "Tambahkan keterampilan")}`;
   }
   const itemLabel = type === "experience" ? "experience" : type === "testimonials" ? "feedback" : type.slice(0, -1);
   document.querySelector("#modal-root").innerHTML = `<div class="modal-backdrop"><form class="modal" id="item-editor"><div class="modal-header"><h2>${index >= 0 ? "Edit" : "Add"} ${safe(itemLabel)}</h2><button class="small-button" type="button" id="close-modal">Close</button></div><div class="field-grid">${fields}</div><div class="modal-actions"><button class="button button--outline" type="button" id="cancel-modal">Cancel</button><button class="button" type="submit">Apply changes</button></div></form></div>`;
@@ -659,6 +662,7 @@ function openEditor(type, index = -1) {
     delete updated["descriptions[]"];
     delete updated["descriptionsId[]"];
     delete updated["skills[]"];
+    delete updated["skillsId[]"];
     try {
       if (!state.demo && type === "projects") {
         const mainFile = event.currentTarget.elements.mainImageFile.files[0];
@@ -703,6 +707,7 @@ function openEditor(type, index = -1) {
       updated.description = updated.descriptions.join("\n");
       if (bilingualEnabled()) updated.descriptionsId = data.getAll("descriptionsId[]").map((value) => value.trim()).filter(Boolean);
       updated.skills = data.getAll("skills[]").map((value) => value.trim()).filter(Boolean);
+      if (bilingualEnabled()) updated.skillsId = data.getAll("skillsId[]").map((value) => value.trim()).filter(Boolean);
       if (updated.current) updated.endMonth = "";
     }
     if (index >= 0) itemArray(type)[index] = updated;
@@ -860,6 +865,8 @@ async function persist() {
     const saved = await saveContent(state.content, state.token, state.updatedAt);
     state.updatedAt = saved.updated_at || state.updatedAt;
     state.dirty = false;
+    const indicator = document.querySelector("#save-indicator");
+    if (indicator) indicator.textContent = state.user;
     showNotice("Changes saved. Published content is now available to the public portfolio.", "success");
     if (button) button.textContent = "Saved";
   } catch (error) {

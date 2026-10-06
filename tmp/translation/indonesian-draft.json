@@ -1,0 +1,326 @@
+{
+  "home": {
+    "roleId": "Manajer Produk",
+    "quoteId": "Pahami masalahnya. Utamakan dampaknya. Bangun dengan tujuan yang jelas. Lakukan perbaikan berdasarkan bukti."
+  },
+  "site": {
+    "descriptionId": "Portofolio desainer produk independen",
+    "runningTextId": "Desain UX + Desain Aplikasi + Dasbor + Kerangka Antarmuka + Riset Pengguna +"
+  },
+  "about": {
+    "paragraphsId": [
+      "Saat ini saya merupakan mahasiswa semester 7 yang menempuh program gelar ganda Sistem Informasi dan Manajemen di Bina Nusantara University, angkatan 2027. Dengan minat yang kuat pada teknologi, bisnis, dan kepemimpinan, saya terus mengembangkan kemampuan analitis dan manajerial untuk mempersiapkan karier yang menghubungkan teknologi informasi dengan strategi bisnis.",
+      "Selain menjalani perkuliahan, saat ini saya memperoleh pengalaman profesional sebagai peserta magang Perbaikan dan Rekayasa Ulang Proses di Blibli. Dalam peran ini, saya terlibat dalam mengidentifikasi peluang peningkatan proses bisnis melalui perancangan ulang proses, otomatisasi, dan berbagai inisiatif efisiensi operasional. Pengalaman ini memperkuat kemampuan saya dalam menganalisis alur kerja, menemukan peluang perbaikan, serta mengembangkan solusi praktis yang memberikan dampak bisnis terukur."
+    ]
+  },
+  "projects": [
+    {
+      "titleId": "EASE: Easing Anxiety Supporting Each",
+      "descriptionId": "EASE adalah platform kesehatan mental digital yang dirancang khusus untuk membantu individu dengan gangguan kecemasan menjalani proses pemulihan secara menyeluruh. Melalui pendekatan Three-Way Care, EASE menghubungkan pasien, dokter, dan pendamping dalam satu ekosistem perawatan secara langsung. Dengan demikian, proses pemulihan tidak dijalani sendirian, melainkan didukung oleh sistem yang suportif, inklusif, dan bebas stigma.",
+      "challengeId": "Tantangan dalam pengembangan aplikasi EASE adalah merancang pengalaman yang terpadu bagi tiga peran pengguna berbeda, yaitu pasien, dokter, dan pendamping, dalam satu platform yang tetap intuitif dan mudah digunakan. Tim juga perlu memastikan setiap elemen desain terasa empatik, bukan kaku seperti lingkungan klinis; merancang mekanisme Tombol Panik yang cepat diakses tetapi tidak mudah tertekan secara tidak sengaja; serta memvalidasi materi terapi CBT, ERP, dan Somatic Experiencing agar memenuhi standar klinis sekaligus mudah dipahami oleh pengguna awam."
+    },
+    {
+      "titleId": "Portal KM Sukabumi Utara KM.03",
+      "descriptionId": "Proyek ini mengembangkan Portal Manajemen Pengetahuan berbasis kecerdasan buatan (AI) untuk Karang Taruna RW 03 Sukabumi Utara, Jakarta Barat. Portal ini menjadi platform terpusat untuk dokumentasi kegiatan, panduan UMKM, materi pelatihan, dan layanan administrasi berupa surat pengantar serta surat domisili. Fitur pendukungnya meliputi chatbot dengan pemrosesan bahasa alami (NLP), sistem rekomendasi, klasifikasi otomatis, dan dasbor analitik. Pengembangan mencakup diagram aktivitas, diagram use case, kerangka antarmuka, serta prototipe Figma dengan tampilan detail untuk warga dan admin. Pengujian kegunaan memperoleh skor 4,42/5 (Sangat Baik) dari 50 responden.",
+      "challengeId": "Tantangan utamanya adalah pengelolaan pengetahuan warga yang masih informal dan tersebar di dokumen cetak serta grup percakapan, sehingga sulit diakses dan berisiko hilang. Kondisi ini masih berada pada tahap sosialisasi dalam model SECI. Literasi digital warga yang belum optimal membutuhkan antarmuka sederhana. Di sisi lain, anggaran terbatas sebesar Rp7.000.000 dan waktu pelaksanaan hanya empat bulan menuntut efisiensi tim dalam merancang, mengembangkan, dan memastikan keberlanjutan portal setelah program berakhir."
+    },
+    {
+      "titleId": "Klinik Pratama Sarana Sehat Sejahtera",
+      "descriptionId": "Sistem Informasi Manajemen Klinik Pratama Sarana Sehat Sejahtera adalah aplikasi berbasis web yang dirancang untuk mendigitalisasi proses operasional klinik yang berfokus pada layanan terapi bioresonansi. Sistem ini mencakup empat modul utama: pengelolaan janji temu, forum dan artikel kesehatan, perhitungan komisi dokter secara otomatis, serta laporan operasional bulanan klinik. Pengembangan dilakukan hingga tahap prototipe, meliputi analisis kebutuhan, perancangan UML, ERD, kerangka antarmuka, dan prototipe dengan tampilan detail.",
+      "challengeId": "Tantangan dalam pengembangan Sistem Informasi Manajemen Klinik Pratama Sarana Sehat Sejahtera adalah menyatukan seluruh proses operasional klinik yang sebelumnya dilakukan secara manual ke dalam satu sistem digital yang menyeluruh dan efisien. Proses pembuatan janji temu, pencatatan rekam medis, perhitungan komisi dokter, dan penyusunan laporan bulanan yang semula dikerjakan secara terpisah perlu dirancang ulang menjadi alur sistem yang terstruktur dan saling terhubung. Tim juga perlu memastikan sistem dapat memenuhi kebutuhan berbagai pihak, mulai dari pasien, dokter, terapis, resepsionis, dan admin hingga pemilik klinik, dalam satu platform yang tetap mudah digunakan."
+    },
+    {
+      "titleId": "SahabatSehat",
+      "descriptionId": "SahabatSehat adalah aplikasi seluler untuk pemantauan kesehatan yang dirancang khusus bagi lansia dengan pendekatan desain berpusat pada pengguna, agar antarmuka dan fiturnya mudah dioperasikan oleh pengguna lanjut usia. Aplikasi ini membantu lansia memantau kesehatan melalui pengingat minum obat, pencatatan kondisi kesehatan, pemantauan aktivitas fisik, dan perencanaan pola makan, sehingga mereka dapat menjaga kesehatan secara mandiri.",
+      "challengeId": "Salah satu tantangan utama dalam pengembangan SahabatSehat adalah merancang antarmuka yang mudah digunakan oleh lansia dengan literasi digital rendah. Tim juga menghadapi kesulitan dalam menyederhanakan fitur kesehatan yang cukup kompleks agar tetap informatif tanpa membingungkan pengguna lanjut usia."
+    },
+    {
+      "titleId": "SkillFuel",
+      "descriptionId": "SkillFuel adalah platform pengembangan karier berbasis AI yang membantu lulusan baru dan profesional muda meningkatkan kesiapan kerja melalui ekosistem terpadu. Platform ini menyediakan fitur pembuatan CV dengan AI, analisis kesenjangan keterampilan, simulasi proyek, kursus, pendampingan, dan pencocokan kandidat dengan perekrut secara cerdas. Melalui fitur tersebut, pengguna dapat mengembangkan keterampilan dan portofolio serta memperoleh peluang kerja yang sesuai dengan kebutuhan industri.",
+      "challengeId": "Tantangan dalam pengembangan SkillFuel terletak pada besarnya kesenjangan keterampilan antara pengguna dan kebutuhan industri, terbatasnya pengalaman praktis serta portofolio pengguna, dan kesulitan menentukan jalur karier yang tepat. Banyaknya pilihan kursus juga membuat pengguna kebingungan. Di sisi perusahaan, proses penyaringan kandidat masih belum efisien karena banyak CV yang tidak relevan dan sulitnya memvalidasi kemampuan kandidat secara akurat."
+    },
+    {
+      "titleId": "Szān",
+      "descriptionId": "Szān adalah toko pakaian daring dengan konsep fesyen berkelanjutan yang mengolah pakaian bekas yang telah disterilkan menjadi pakaian baru dengan desain unik. Setiap produk dibuat dari kombinasi beberapa bahan sehingga menghasilkan pola berbeda dan tidak ada dua pakaian yang benar-benar sama. Selain menjual berbagai pakaian hasil pengolahan ulang, Szān menawarkan produk seperti kotak kejutan untuk memberikan pengalaman berbelanja yang lebih menarik bagi pelanggan.",
+      "challengeId": "Tantangan utama dalam pengembangan aplikasi Szān adalah merancang sistem yang dapat menampilkan produk unik dan beragam tanpa membuat pengalaman pengguna menjadi terlalu rumit. Proses penyajian katalog produk, pengelolaan stok terbatas, dan fitur seperti kotak kejutan juga perlu berjalan lancar. Tantangan lainnya adalah menciptakan antarmuka sederhana dan mudah digunakan agar pengguna dapat menemukan produk yang dicari dengan cepat."
+    },
+    {
+      "titleId": "Travio",
+      "descriptionId": "Travio adalah aplikasi seluler yang membantu pengguna merencanakan perjalanan dengan lebih mudah. Melalui aplikasi ini, pengguna dapat mencari dan memesan berbagai kebutuhan perjalanan, seperti hotel, tiket tempat hiburan, penyewaan kendaraan, dan layanan Local Buddy sebagai pemandu lokal. Travio juga menyediakan informasi harga, fasilitas, ketersediaan layanan, dan ulasan pengguna untuk mendukung pengambilan keputusan, sehingga perjalanan menjadi lebih praktis dan terorganisasi.",
+      "challengeId": "Tantangan dalam proyek Travio adalah merancang sistem yang dapat menyatukan berbagai layanan perjalanan dalam satu platform terpadu. Proyek ini memberikan pembelajaran tentang memahami kebutuhan pengguna, merancang alur bisnis, membuat berbagai diagram sistem, serta merancang struktur data dan antarmuka aplikasi agar seluruh fitur saling terhubung, jelas, dan mudah digunakan."
+    },
+    {
+      "titleId": "SiTiket",
+      "descriptionId": "SiTiket adalah proyek aplikasi desktop yang dikembangkan menggunakan bahasa pemrograman Java. Aplikasi ini memiliki antarmuka sederhana yang dibangun dengan JavaFX untuk memudahkan pengguna melihat informasi dan melakukan pemesanan tiket. Aplikasi juga terhubung dengan basis data untuk menyimpan data pengguna, data tiket, dan transaksi pemesanan secara terstruktur.",
+      "challengeId": "Tantangan dalam pengembangan proyek ini adalah membangun integrasi antara antarmuka JavaFX dan sistem basis data agar data dapat ditampilkan serta disimpan dengan benar. Pengembang juga perlu mengatur alur navigasi antarhalaman, menyusun struktur kode aplikasi desktop, dan memastikan antarmuka tetap sederhana serta mudah digunakan."
+    },
+    {
+      "titleId": "FloraArtistry",
+      "descriptionId": "FloraArtistry adalah proyek aplikasi desktop yang dikembangkan menggunakan bahasa pemrograman Java untuk membantu pengelolaan toko bunga. Aplikasi ini memiliki antarmuka sederhana yang dibangun dengan JavaFX dan terhubung ke basis data MySQL untuk menyimpan data pengguna, produk bunga, isi keranjang belanja, dan transaksi pembelian secara terstruktur.",
+      "challengeId": "Tantangan dalam pengembangan FloraArtistry adalah mengintegrasikan antarmuka JavaFX dengan basis data MySQL agar data pengguna, produk bunga, dan transaksi dapat dikelola secara konsisten. Pengembang juga perlu membangun validasi masukan untuk proses masuk, pendaftaran, dan pengelolaan produk, serta mengatur alur navigasi antara halaman admin dan pelanggan agar aplikasi berjalan dengan baik."
+    },
+    {
+      "titleId": "Domus Group",
+      "descriptionId": "Proyek basis data DOMUS Group merupakan perancangan sistem basis data untuk mendukung proses pengadaan dan penjualan pada perusahaan furnitur. Sistem ini dirancang untuk mengurangi duplikasi data, menyatukan pencatatan stok, pemasok, transaksi, dan faktur, serta meningkatkan efisiensi pengelolaan data melalui struktur basis data yang terorganisasi agar operasional bisnis berjalan lebih akurat.",
+      "challengeId": "Tantangan dalam proyek basis data DOMUS Group adalah merancang struktur basis data yang dapat menyatukan berbagai proses bisnis, seperti pengadaan, pengelolaan stok bahan baku, pemasok, dan transaksi penjualan, tanpa menimbulkan duplikasi data. Hubungan antarentitas juga perlu dirancang dengan tepat agar data tetap konsisten dan akurat serta dapat mendukung proses operasional perusahaan secara efisien."
+    },
+    {
+      "titleId": "NovaScript Academy",
+      "descriptionId": "NovaScript Academy adalah situs pembelajaran pemrograman yang dikembangkan menggunakan HTML, CSS, JavaScript, dan PHP. Platform ini dirancang untuk membantu pemula mempelajari dasar-dasar pemrograman melalui tutorial video yang terstruktur. Materi yang tersedia saat ini mencakup HTML, CSS, dan JavaScript. Situs ini juga dirancang agar dapat dikembangkan lebih lanjut dengan fitur pembelajaran tambahan di masa mendatang.",
+      "challengeId": "Tantangan utama dalam pengembangan NovaScript Academy adalah merancang sistem validasi pendaftaran untuk memastikan data pengguna yang dimasukkan tetap valid dan aman. Validasi memastikan nama, email, kata sandi, serta konfirmasi kata sandi diisi dengan benar dan sesuai format yang ditentukan. Proses ini menggunakan JavaScript untuk validasi di sisi pengguna dan PHP untuk pemeriksaan lanjutan di sisi server."
+    },
+    {
+      "titleId": "Portofolio Saya",
+      "descriptionId": "Situs portofolio ini menampilkan profil, pengalaman, dan berbagai proyek yang telah saya kerjakan dalam bidang teknologi serta pengembangan produk. Situs dibangun menggunakan HTML, CSS, dan JavaScript dengan tampilan modern dan responsif. Setiap proyek dilengkapi deskripsi, dokumentasi, dan tautan kode sumber untuk memperlihatkan proses pengembangan serta kemampuan teknis yang saya miliki.",
+      "challengeId": "Tantangan utama dalam pengembangan situs portofolio ini adalah merancang tampilan yang sederhana tetapi tetap menarik dan profesional. Tata letak, animasi, dan navigasi responsif juga perlu dirancang dengan cermat agar setiap bagian, seperti proyek, sertifikat, dan kontak, ditampilkan dengan rapi dan mudah diakses oleh pengunjung."
+    }
+  ],
+  "experiences": [
+    {
+      "titleId": "Magang Manajer Produk",
+      "descriptionsId": [
+        "Mendukung pengembangan produk dari awal hingga akhir, mulai dari pengumpulan kebutuhan hingga implementasi fitur.",
+        "Menerjemahkan kebutuhan bisnis menjadi persyaratan produk yang jelas dan berkolaborasi dengan tim lintas fungsi untuk menghasilkan solusi produk.",
+        "Menganalisis kinerja produk, alur pengguna, dan metrik utama untuk menemukan wawasan serta merekomendasikan perbaikan berdasarkan data.",
+        "Membantu perencanaan dan evaluasi eksperimen produk untuk memvalidasi fitur serta meningkatkan pengalaman pengguna.",
+        "Mengidentifikasi peluang perbaikan proses bisnis melalui optimalisasi alur kerja dan inisiatif integrasi sistem."
+      ]
+    },
+    {
+      "titleId": "Dewan Penasihat HIMSISFO",
+      "descriptionsId": [
+        "Memberikan arahan strategis dan masukan kepada pengurus HIMSISFO.",
+        "Mengawasi pelaksanaan program kerja agar selaras dengan visi dan misi organisasi.",
+        "Berperan sebagai mediator dalam penyelesaian konflik internal organisasi.",
+        "Memberikan evaluasi dan rekomendasi untuk meningkatkan kinerja pengurus."
+      ]
+    },
+    {
+      "titleId": "LDKKA HIMSISFO 2026: IGNITE – Penanggung Jawab (PIC) Kelompok",
+      "descriptionsId": [
+        "Bertanggung jawab sebagai PIC kelompok selama kegiatan LDKKA di Bogor selama dua hari satu malam.",
+        "Mengarahkan dan mengoordinasikan 10 anggota kelompok sepanjang rangkaian kegiatan.",
+        "Memantau kedisiplinan dan memastikan anggota mengikuti seluruh kegiatan program.",
+        "Memastikan keselamatan, kesehatan, dan kenyamanan anggota kelompok selama kegiatan."
+      ]
+    },
+    {
+      "titleId": "Wakil Manajer Proyek BALON HIMSISFO 2025: GEMS",
+      "descriptionsId": [
+        "Mendukung perencanaan dan pelaksanaan program BALON HIMSISFO 2025.",
+        "Membantu koordinasi tim dan kegiatan seleksi calon Ketua HIMSISFO.",
+        "Memantau jadwal pelaksanaan dan memastikan setiap divisi bekerja sesuai rencana.",
+        "Mendukung proses evaluasi serta kegiatan penilaian kesiapan dan visi kepemimpinan para calon."
+      ]
+    },
+    {
+      "titleId": "Magang Manajer Produk di PT. Global Digital Niaga (Blibli.com)",
+      "descriptionsId": [
+        "Mendukung pengembangan produk dari awal hingga akhir, mulai dari pengumpulan kebutuhan hingga implementasi fitur.",
+        "Menerjemahkan kebutuhan bisnis menjadi persyaratan produk yang jelas dan berkolaborasi dengan tim lintas fungsi untuk menghasilkan solusi produk.",
+        "Menganalisis kinerja produk, alur pengguna, dan metrik utama untuk menemukan wawasan serta merekomendasikan perbaikan berdasarkan data.",
+        "Membantu perencanaan dan evaluasi eksperimen produk untuk memvalidasi fitur serta meningkatkan pengalaman pengguna.",
+        "Mengidentifikasi peluang perbaikan proses bisnis melalui optimalisasi alur kerja dan inisiatif integrasi sistem."
+      ]
+    },
+    {
+      "titleId": "Penerima Beasiswa Mentor Senior SASC – Semester Genap 2025/2026",
+      "descriptionsId": [
+        "Kembali terpilih sebagai mentor melalui program Beasiswa Mentor SASC.",
+        "Dipercaya melanjutkan peran pendampingan berdasarkan hasil yang baik pada program sebelumnya.",
+        "Membimbing mahasiswa dalam menghadapi tantangan akademik dan meningkatkan hasil belajar.",
+        "Membimbing mahasiswa dalam menghadapi tantangan akademik dan meningkatkan hasil belajar."
+      ]
+    },
+    {
+      "titleId": "Penerima Beasiswa Mentor SASC – Semester Ganjil 2025/2026",
+      "descriptionsId": [
+        "Terpilih sebagai penerima Beasiswa Mentor dengan IPK di atas 3,5 dan tanpa nilai di bawah B.",
+        "Mendampingi satu mahasiswa bimbingan dalam menghadapi tantangan akademik.",
+        "Memberikan arahan dan dukungan untuk membantu meningkatkan prestasi akademik.",
+        "Membangun lingkungan belajar yang kolaboratif dan saling mendukung."
+      ]
+    },
+    {
+      "titleId": "Wakil Manajer Proyek LDKCP HIMSISFO 2025: WIND",
+      "descriptionsId": [
+        "Mendukung perencanaan dan pelaksanaan program LDKCP bagi calon pengurus HIMSISFO.",
+        "Membantu Manajer Proyek dalam mengoordinasikan tim dan kegiatan program.",
+        "Mengawasi alur kerja antardivisi agar program berjalan sesuai rencana.",
+        "Mendukung kegiatan yang berfokus pada pengembangan keterampilan kepemimpinan dan organisasi."
+      ]
+    },
+    {
+      "titleId": "SELCAVIS HIMSISFO 2025: PRODIGY – Relawan Pewawancara",
+      "descriptionsId": [
+        "Berperan sebagai pewawancara dalam proses seleksi aktivis baru HIMSISFO.",
+        "Melakukan wawancara terstruktur untuk menilai potensi kepemimpinan, motivasi berorganisasi, dan kemampuan kerja sama calon anggota.",
+        "Bekerja sama dengan tim penyelenggara untuk memastikan proses seleksi berlangsung objektif dan berkualitas.",
+        "Mendukung evaluasi calon anggota berdasarkan standar penilaian yang telah ditetapkan."
+      ]
+    },
+    {
+      "titleId": "Staf Komisi 4 – Pengembangan Sumber Daya Manusia",
+      "descriptionsId": [
+        "Berperan sebagai staf Komisi 4 yang berfokus pada peningkatan kualitas sumber daya manusia organisasi.",
+        "Mendukung program peningkatan kompetensi dan pengembangan anggota.",
+        "Membantu menjaga hubungan positif dan kerja sama antaranggota organisasi.",
+        "Mendukung terciptanya lingkungan organisasi yang sehat dan produktif."
+      ]
+    },
+    {
+      "titleId": "Pendamping Mahasiswa Baru Binusian 2028",
+      "descriptionsId": [
+        "Membimbing dan mendampingi tujuh mahasiswa baru selama tahun pertama di BINUS University.",
+        "Memberikan arahan terkait urusan akademik maupun nonakademik di lingkungan kampus.",
+        "Membantu mahasiswa baru beradaptasi dengan kehidupan perkuliahan.",
+        "Menjadi tempat konsultasi dan sumber dukungan bagi mahasiswa baru selama masa transisi ke kehidupan universitas."
+      ]
+    },
+    {
+      "titleId": "Manajer Proyek Pesta Perpisahan & Buku Tahunan HIMSISFO 2025: TIME",
+      "descriptionsId": [
+        "Merencanakan dan mengelola program Pesta Perpisahan dan Buku Tahunan HIMSISFO 2024/2025.",
+        "Merencanakan dan mengelola program Pesta Perpisahan dan Buku Tahunan HIMSISFO 2024/2025.",
+        "Mengoordinasikan berbagai divisi untuk memastikan kerja sama berjalan lancar.",
+        "Mengelola jadwal proyek dan pembagian tugas selama persiapan program."
+      ]
+    },
+    {
+      "titleId": "Dewan Penasihat Pesta Perpisahan & Buku Tahunan HIMSISFO 2026: FILM",
+      "descriptionsId": [
+        "Berperan sebagai anggota Dewan Penasihat program Pesta Perpisahan & Buku Tahunan HIMSISFO.",
+        "Memberikan arahan dan masukan kepada panitia selama proses perencanaan kegiatan.",
+        "Meninjau rencana program dan memastikan pelaksanaan sesuai standar organisasi.",
+        "Mendukung kelancaran penyusunan buku tahunan dan pelaksanaan acara perpisahan."
+      ]
+    },
+    {
+      "titleId": "Kegiatan Penanaman Pohon di SDN 1 Johar Baru, Jakarta Pusat",
+      "descriptionsId": [
+        "Berpartisipasi sebagai relawan dalam kegiatan penanaman pohon di lingkungan sekolah.",
+        "Bekerja sama dengan tim untuk menanam dan merawat bibit pohon di halaman sekolah.",
+        "Mendukung peningkatan kesadaran siswa akan pentingnya menjaga lingkungan."
+      ]
+    },
+    {
+      "titleId": "Pemimpin Mahasiswa Baru Binusian 2028",
+      "descriptionsId": [
+        "Mendampingi mahasiswa baru selama lima hari orientasi di BINUS University.",
+        "Membimbing mahasiswa baru dalam menyelesaikan tugas dan kegiatan orientasi.",
+        "Memberikan informasi dan menjawab pertanyaan terkait kehidupan akademik serta kampus.",
+        "Membantu mahasiswa baru beradaptasi dengan lingkungan universitas."
+      ]
+    },
+    {
+      "titleId": "Aksi Bersih Lingkungan di Lapangan Banteng, Jakarta",
+      "descriptionsId": [
+        "Berpartisipasi sebagai relawan dalam kegiatan pembersihan lingkungan di Lapangan Banteng.",
+        "Mengumpulkan dan memilah sampah bersama relawan lain untuk menjaga kebersihan area publik.",
+        "Mendukung peningkatan kesadaran masyarakat akan pentingnya menjaga lingkungan."
+      ]
+    },
+    {
+      "titleId": "Dewan Penasihat GERAK HIMSISFO 2025: DIVE",
+      "descriptionsId": [
+        "Berperan sebagai anggota dewan penasihat program GERAK HIMSISFO.",
+        "Memberikan arahan strategis untuk mendukung perencanaan dan pelaksanaan program.",
+        "Membimbing panitia selama persiapan dan pengembangan program kerja.",
+        "Memberikan masukan agar kegiatan selaras dengan tujuan organisasi."
+      ]
+    },
+    {
+      "titleId": "Aktivis Komisi 3 – Informasi",
+      "descriptionsId": [
+        "Berperan sebagai aktivis Komisi 3 yang berfokus pada media dan informasi.",
+        "Membuat desain grafis untuk mendukung kebutuhan visual program organisasi.",
+        "Mendokumentasikan kegiatan melalui fotografi dan pengambilan konten media.",
+        "Menyunting video untuk publikasi dan dokumentasi kegiatan organisasi."
+      ]
+    },
+    {
+      "titleId": "Aksi Pengecatan Trotoar di Jalan Sulaiman, Kemanggisan",
+      "descriptionsId": [
+        "Berpartisipasi sebagai relawan dalam kegiatan pengecatan trotoar di kawasan Jalan Sulaiman, Kemanggisan.",
+        "Bekerja sama dengan tim untuk memperbaiki tampilan dan visibilitas trotoar bagi pejalan kaki.",
+        "Mendukung upaya menjaga kerapian dan kenyamanan fasilitas umum di lingkungan sekitar."
+      ]
+    },
+    {
+      "titleId": "Penyuluhan Otonomi Sosial di MAS Istiqlal Jakarta",
+      "descriptionsId": [
+        "Memimpin tim dalam pelaksanaan kegiatan penyuluhan untuk siswa kelas 12.",
+        "Mengoordinasikan persiapan materi dan pembagian tugas dalam tim.",
+        "Menyampaikan materi tentang konsep otonomi sosial di Indonesia.",
+        "Memfasilitasi diskusi untuk meningkatkan pemahaman dan partisipasi siswa."
+      ]
+    },
+    {
+      "titleId": "Staf Perlengkapan LDKKA HIMSISFO 2025: GROWTH",
+      "descriptionsId": [
+        "Berperan sebagai staf Divisi Perlengkapan selama pelaksanaan program LDKKA HIMSISFO.",
+        "Menyiapkan dan memastikan ketersediaan perlengkapan serta kebutuhan teknis kegiatan.",
+        "Mengatur tata letak lokasi agar acara berjalan lancar dan efisien.",
+        "Mendukung mobilisasi dan koordinasi logistik untuk kelancaran operasional acara."
+      ]
+    },
+    {
+      "titleId": "Staf Perlengkapan SELCAVIS HIMSISFO 2024: BANGER",
+      "descriptionsId": [
+        "Berperan sebagai staf Divisi Perlengkapan selama pelaksanaan program SELCAVIS HIMSISFO.",
+        "Menyiapkan dan mengelola perlengkapan serta kebutuhan teknis acara.",
+        "Mengatur tata letak lokasi agar acara berjalan lancar dan efisien.",
+        "Mendukung persiapan teknis untuk kebutuhan siaran langsung selama acara."
+      ]
+    },
+    {
+      "titleId": "Penyuluhan Kesadaran Antikorupsi di MAS Istiqlal Jakarta",
+      "descriptionsId": [
+        "Berpartisipasi sebagai anggota tim dalam kegiatan penyuluhan kesadaran antikorupsi.",
+        "Menyampaikan materi kepada siswa kelas 11 tentang bahaya korupsi dan pentingnya integritas.",
+        "Mendukung penyampaian materi dan diskusi interaktif bersama peserta.",
+        "Berkontribusi dalam meningkatkan kesadaran siswa mengenai nilai transparansi dan akuntabilitas."
+      ]
+    },
+    {
+      "titleId": "Staf Pendukung Pesta Ulang Tahun HIMSISFO 2024: WONDER",
+      "descriptionsId": [
+        "Berperan sebagai staf Divisi Pendukung selama pelaksanaan acara Pesta Ulang Tahun HIMSISFO.",
+        "Mendukung operasional acara melalui penyiaran dan penyediaan konsumsi.",
+        "Membantu memastikan kebutuhan logistik acara terpenuhi dengan baik.",
+        "Berkontribusi dalam kelancaran kegiatan dan pengalaman acara secara keseluruhan bagi anggota."
+      ]
+    }
+  ],
+  "certificates": [
+    { "titleId": "Juara Kedua Kompetisi Desain UI/UX Nasional TechnoDay UNNES 2025", "categoryId": "Kompetisi" },
+    { "titleId": "Finalis Kompetisi UI/UX Internasional Hackfest Universitas Ciputra 2026", "categoryId": "Kompetisi" },
+    { "titleId": "Hari Apresiasi Binus University 2026", "categoryId": "Universitas" },
+    { "titleId": "Hari Apresiasi School of Information System 2025", "categoryId": "Universitas" },
+    { "titleId": "Sertifikat Dean's List atas Prestasi Akademik Unggul 2025", "categoryId": "Universitas" },
+    { "titleId": "Perangkat Lunak Manajemen Sumber Daya Manusia HashMicro", "categoryId": "Perangkat Lunak" },
+    { "titleId": "Sertifikat Penyelesaian Kursus Machine Learning A-Z", "categoryId": "Kursus" },
+    { "titleId": "Sertifikat Apresiasi Pendamping Mahasiswa Baru Binusian 2028", "categoryId": "Universitas" },
+    { "titleId": "Sertifikat Kontribusi Wakil Manajer Proyek HIMSISFO BALON 2025: GEMS", "categoryId": "Organisasi" },
+    { "titleId": "Sertifikat Kontribusi Wakil Manajer Proyek HIMSISFO LDKCP 2025: WIND", "categoryId": "Organisasi" },
+    { "titleId": "Sertifikat Kontribusi Penasihat Acara Pesta Perpisahan & Buku Tahunan HIMSISFO 2026: FILM", "categoryId": "Organisasi" },
+    { "titleId": "Sertifikat Kontribusi Penasihat Acara HIMSISFO GERAK 2025: DIVE", "categoryId": "Organisasi" }
+  ],
+  "testimonials": [
+    { "nameId": "Rekan tim produk", "contextId": "Kolaborasi lintas fungsi", "quoteId": "Desainer istimewa yang mampu menyederhanakan masalah sulit tanpa mengurangi ambisi di baliknya." },
+    { "nameId": "Rekan tim pengembangan", "contextId": "Kolaborasi desain dan pengembangan", "quoteId": "Keputusan yang jelas, pemikiran sistem yang sangat baik, dan serah terima hasil desain yang dapat diterapkan tim kami dengan yakin." }
+  ],
+  "posts": [
+    { "titleId": "Di balik pengembangan sistem desain yang bermanfaat", "categoryId": "Desain UI/UX" },
+    { "titleId": "Merancang alat keuangan untuk meningkatkan keyakinan pengguna", "categoryId": "Desain Aplikasi" },
+    { "titleId": "Membuat hasil riset mudah dipahami seluruh tim", "categoryId": "Riset" }
+  ],
+  "testimonialSubtitleId": "Catatan dari orang-orang yang pernah berkolaborasi dengan saya dalam strategi produk, sistem desain, dan pelaksanaan proyek.",
+  "categoryTranslations": {
+    "project": { "All": "Semua", "Product Design": "Desain Produk", "Landing Page": "Halaman Arahan", "Mobile App": "Aplikasi Seluler", "UI/UX": "UI/UX", "Java": "Java", "Database": "Basis Data", "Website": "Situs Web" },
+    "experience": { "All": "Semua", "Work": "Pekerjaan", "Organizational": "Organisasi", "Volunteer": "Relawan", "Leadership": "Kepemimpinan", "University": "Universitas" }
+  },
+  "skillTranslations": {
+    "Product Management": "Manajemen Produk", "Business Analysis": "Analisis Bisnis", "Data Analysis": "Analisis Data", "Cross-functional Collaboration": "Kolaborasi Lintas Fungsi", "Agile Methodology": "Metodologi Agile", "Communication": "Komunikasi", "Team Collaboration": "Kolaborasi Tim", "Critical Thinking": "Berpikir Kritis", "Leadership": "Kepemimpinan", "Team Coordination": "Koordinasi Tim", "Responsibility": "Tanggung Jawab", "Problem Solving": "Pemecahan Masalah", "Project Management": "Manajemen Proyek", "Mentoring": "Pendampingan", "Academic Guidance": "Bimbingan Akademik", "Organizational Management": "Manajemen Organisasi", "Interviewing": "Wawancara", "Human Resource Development": "Pengembangan Sumber Daya Manusia", "Organizational Support": "Dukungan Organisasi", "Interpersonal Skill": "Keterampilan Interpersonal", "Strategic Thinking": "Berpikir Strategis", "Organizational Insight": "Wawasan Organisasi", "Teamwork": "Kerja Sama Tim", "Environmental Awareness": "Kepedulian Lingkungan", "Collaboration": "Kolaborasi", "Social Responsibility": "Tanggung Jawab Sosial", "Graphic Design": "Desain Grafis", "Video Editing": "Penyuntingan Video", "Photography": "Fotografi", "Creative Communication": "Komunikasi Kreatif", "Community Engagement": "Keterlibatan Masyarakat", "Public Speaking": "Berbicara di Depan Umum", "Event Operations": "Operasional Acara", "Technical Coordination": "Koordinasi Teknis", "Social Awareness": "Kesadaran Sosial", "Event Coordination": "Koordinasi Acara"
+  }
+}

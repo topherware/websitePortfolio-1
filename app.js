@@ -20,10 +20,12 @@ const isPublished = (item) => (item.status || "published").toLowerCase() === "pu
 
 const uiText = {
   en: {
+    issuerNotSet: "Issuer not set", yearNotSet: "Year not set", collaborator: "Collaborator", portfolioUnavailable: "Portfolio unavailable", loadingPortfolio: "Loading portfolio",
     viewMore: "View more", showMore: "Show more", showAll: "Show all", showLess: "Show less",
     iAm: "I am", projectHighlight: "Project highlight", highlightTitle: "Three projects,<br /><span class=\"accent\">one clear focus</span>", highlightCopy: "A quick look at the work that best represents my approach to product thinking, interaction, and visual craft.", experienceTitle: "My <span class=\"accent\">work experience</span>", selectedPortfolio: "Selected portfolio", projectsTitle: "Work built for<br /><span class=\"accent\">real outcomes</span>", projectsCopy: "A focused selection of product systems, interfaces, and digital experiences shaped around clarity and measurable value.", caseStudy: "Case study", viewProject: "View project", professionalDevelopment: "Professional development", collaborationNotes: "Collaboration notes", openConversation: "Open for conversation", navigation: "Navigation", contact: "Contact", preferEmail: "Prefer email?", present: "Present", visitProject: "Visit project", challenge: "The challenge", descriptionLabel: "Project description", storyEyebrow: "Case study notes", storyTitle: "Description & challenge", backPortfolio: "Back to portfolio", projectNotFound: "Project not found", projectUnavailable: "This project is unavailable or has not been published.",
   },
   id: {
+    issuerNotSet: "Penerbit belum diisi", yearNotSet: "Tahun belum diisi", collaborator: "Rekan kerja", portfolioUnavailable: "Portofolio tidak tersedia", loadingPortfolio: "Memuat portofolio",
     viewMore: "Lihat lebih banyak", showMore: "Tampilkan lebih banyak", showAll: "Tampilkan semua", showLess: "Tampilkan lebih sedikit",
     iAm: "Saya", projectHighlight: "Sorotan proyek", highlightTitle: "Tiga proyek,<br /><span class=\"accent\">satu fokus jelas</span>", highlightCopy: "Pilihan karya yang paling mewakili pendekatan saya terhadap pemikiran produk, interaksi, dan visual.", experienceTitle: "Pengalaman <span class=\"accent\">kerja saya</span>", selectedPortfolio: "Portofolio pilihan", projectsTitle: "Karya untuk<br /><span class=\"accent\">hasil nyata</span>", projectsCopy: "Pilihan sistem produk, antarmuka, dan pengalaman digital yang dibangun untuk kejelasan dan nilai yang terukur.", caseStudy: "Studi kasus", viewProject: "Lihat proyek", professionalDevelopment: "Pengembangan profesional", collaborationNotes: "Catatan kolaborasi", openConversation: "Terbuka untuk berdiskusi", navigation: "Navigasi", contact: "Kontak", preferEmail: "Lebih suka email?", present: "Sekarang", visitProject: "Kunjungi proyek", challenge: "Tantangan", descriptionLabel: "Deskripsi proyek", storyEyebrow: "Catatan studi kasus", storyTitle: "Deskripsi & tantangan", backPortfolio: "Kembali ke portofolio", projectNotFound: "Proyek tidak ditemukan", projectUnavailable: "Proyek ini tidak tersedia atau belum dipublikasikan.",
   },
@@ -56,7 +58,7 @@ function socialIcon(platform = "") {
   const icons = {
     linkedin: '<path fill="currentColor" d="M5 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM3.5 9h3v12h-3V9Zm6 0h3v1.6c.6-1.1 1.8-1.9 3.5-1.9 3.1 0 4.5 1.8 4.5 5.2V21h-3v-6.4c0-1.9-.6-3-2.2-3-1.7 0-2.8 1.2-2.8 3.3V21h-3V9Z"/>',
     instagram: '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>',
-    whatsapp: '<path d="M20.5 11.7a8.5 8.5 0 0 1-12.7 7.4L3 21l1.7-4.9a8.5 8.5 0 1 1 15.8-4.4Z"/><path d="m8 7 1.5 3-1 1c1 2 2.5 3.5 4.5 4.5l1-1 3 1.5c0 1.5-1.1 2.3-2.5 2-4.5-1-8-4.5-9-9C5.2 7.6 6.5 7 8 7Z" transform="translate(1 -1) scale(.9)"/>',
+    whatsapp: '<path fill="currentColor" stroke="none" d="M20.52 3.48A11.9 11.9 0 0 0 12.05 0C5.46 0 .1 5.36.1 11.95c0 2.1.55 4.16 1.6 5.97L0 24l6.26-1.64a11.96 11.96 0 0 0 5.78 1.47h.01c6.59 0 11.95-5.36 11.95-11.95 0-3.2-1.24-6.2-3.48-8.4ZM12.05 21.8a9.9 9.9 0 0 1-5.04-1.38l-.36-.22-3.72.98.99-3.63-.24-.37a9.86 9.86 0 0 1-1.52-5.23c0-5.47 4.45-9.92 9.92-9.92a9.85 9.85 0 0 1 7.01 2.9 9.85 9.85 0 0 1 2.91 7.02c0 5.47-4.45 9.92-9.95 9.85Zm5.44-7.38c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.9-.8-1.51-1.8-1.68-2.1-.18-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.68-1.62-.93-2.21-.24-.59-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.2 5.1 4.49.7.3 1.25.48 1.68.62.7.22 1.34.19 1.85.11.56-.08 1.77-.72 2.02-1.42.25-.69.25-1.29.18-1.41-.08-.13-.28-.2-.58-.35Z"/>',
     facebook: '<path fill="currentColor" stroke="none" d="M14 22v-9h3l.5-4H14V7c0-1.2.3-2 2-2h2V1.5A24 24 0 0 0 15 1c-3 0-5 1.8-5 5v3H7v4h3v9Z"/>',
     x: '<path d="m4 3 16 18h-4L4 3h4l12 18M20 3 4 21"/>',
     youtube: '<rect x="2" y="5" width="20" height="14" rx="4"/><path fill="currentColor" stroke="none" d="m10 8 6 4-6 4Z"/>',
@@ -197,7 +199,7 @@ function renderExperience(content) {
       <div class="timeline-role">
         <h3>${safe(translated(item, "title"))}</h3>
         <div class="timeline-descriptions">${(activeLanguage === "id" && item.descriptionsId?.length ? item.descriptionsId : item.descriptions?.length ? item.descriptions : [item.description]).filter(Boolean).map((description) => `<p>${safe(description)}</p>`).join("")}</div>
-        <div class="skill-list">${(item.skills || []).map((skill) => `<span>${safe(skill)}</span>`).join("")}</div>
+        <div class="skill-list">${(activeLanguage === "id" && item.skillsId?.length ? item.skillsId : item.skills || []).map((skill) => `<span>${safe(skill)}</span>`).join("")}</div>
       </div>
     </article>`).join("");
   return `
@@ -277,7 +279,7 @@ function renderCertificates(content) {
         <h2 class="section-title reveal">${safe(translated(content, "certificateTitle"))}</h2>
         <p class="section-copy reveal">${safe(translated(content, "certificateSubtitle"))}</p>
         <div class="certificate-grid" id="certificates-list" data-list-limit="3">
-          ${certificates.map((certificate) => `<article class="certificate-card reveal"><div class="certificate-image">${imageOrFallback(certificate.imageUrl, translated(certificate, "title"))}</div><div class="certificate-body"><p class="certificate-category">${safe(translated(certificate, "category"))}</p><h3>${safe(translated(certificate, "title"))}</h3><div class="certificate-meta"><span>${safe(certificate.issuer || "Issuer not set")}</span><span>${safe(certificate.year || "Year not set")}</span></div></div></article>`).join("") || '<div class="empty-state">Certificates will appear here when published.</div>'}
+          ${certificates.map((certificate) => `<article class="certificate-card reveal"><div class="certificate-image">${imageOrFallback(certificate.imageUrl, translated(certificate, "title"))}</div><div class="certificate-body"><p class="certificate-category">${safe(translated(certificate, "category"))}</p><h3>${safe(translated(certificate, "title"))}</h3><div class="certificate-meta"><span>${safe(certificate.issuer || text("issuerNotSet"))}</span><span>${safe(certificate.year || text("yearNotSet"))}</span></div></div></article>`).join("") || '<div class="empty-state">Certificates will appear here when published.</div>'}
         </div>
         ${renderListToggle("certificates", "showMore")}
       </div>
@@ -289,7 +291,7 @@ function renderTestimonials(content) {
   const cards = testimonials.map((testimonial) => `
     <article class="testimonial-card reveal">
       <blockquote>${safe(translated(testimonial, "quote"))}</blockquote>
-      <div class="feedback-source"><strong>${safe(testimonial.name || "Collaborator")}</strong><span>${safe(translated(testimonial, "context"))}</span></div>
+      <div class="feedback-source"><strong>${safe(translated(testimonial, "name") || text("collaborator"))}</strong><span>${safe(translated(testimonial, "context"))}</span></div>
     </article>`).join("");
   return `
     <section class="testimonials" id="testimonials">
@@ -543,7 +545,7 @@ async function boot() {
     if (!currentContent.site?.languages?.enabled) activeLanguage = "en";
     renderCurrentPage();
   } catch (error) {
-    app.innerHTML = `<div class="error-state"><h1>Portfolio unavailable</h1><p>${safe(error.message)}</p></div>`;
+    app.innerHTML = `<div class="error-state"><h1>${safe(text("portfolioUnavailable"))}</h1><p>${safe(error.message)}</p></div>`;
   }
 }
 
