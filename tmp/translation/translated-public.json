@@ -38,7 +38,7 @@
     "ctaLabel": "Chat with me",
     "languages": {
       "enabled": true,
-      "defaultLanguage": "id"
+      "defaultLanguage": "en"
     },
     "ctaLabelId": "Hubungi saya",
     "footerNote": "Copyright 2026. All rights reserved.",

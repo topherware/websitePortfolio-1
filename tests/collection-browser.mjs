@@ -74,7 +74,7 @@ try {
     const lastTimelineStyle = await page.locator(".timeline-item.last-visible").evaluate(card => ({
       content: getComputedStyle(card, "::before").content, margin: getComputedStyle(card).marginBottom,
     }));
-    assert.equal(lastTimelineStyle.content, "none");
+    assert.equal(lastTimelineStyle.content, '""');
     assert.equal(lastTimelineStyle.margin, "0px");
     assert.equal(await page.locator(".social-link svg").count(), 3);
     assert.deepEqual(await page.locator(".social-link").allTextContents(), ["", "", ""]);

@@ -2498,7 +2498,7 @@ export const indonesianBundle = {
         {
           "key": "defaultLanguage",
           "before": "en",
-          "value": "id"
+          "value": "en"
         }
       ]
     }

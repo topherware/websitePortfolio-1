@@ -51,7 +51,11 @@ function imageOrFallback(url, alt, className = "") {
 }
 
 function iconArrow() {
-  return '<span class="arrow" aria-hidden="true">&#8599;</span>';
+  return '<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg>';
+}
+
+function iconMenu(open = false) {
+  return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="${open ? "M6 6l12 12M18 6 6 18" : "M4 6h16M4 12h16M4 18h16"}"/></svg>`;
 }
 
 function socialIcon(platform = "") {
@@ -120,7 +124,7 @@ function renderHeader(site, detail = false) {
         <ul class="nav-list">${links(normalized.slice(0, midpoint), 0)}</ul>
         ${renderBrand(site)}
         <div class="nav-right"><ul class="nav-list">${links(normalized.slice(midpoint), midpoint)}</ul></div>
-        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">&#9776;</button>
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">${iconMenu()}</button>
       </nav>
       ${languageSwitch}
     </header>`;
@@ -128,6 +132,9 @@ function renderHeader(site, detail = false) {
 
 function renderHero(content) {
   const { home } = content;
+  const nameWords = String(home.name || "").trim().split(/\s+/);
+  const lastName = nameWords.pop();
+  const name = `${safe(nameWords.join(" "))}${nameWords.length ? " " : ""}<span class="name-last">${safe(lastName)}<span class="hero-punctuation">,</span></span>`;
   const portrait = cleanUrl(home.portraitUrl)
     ? imageOrFallback(home.portraitUrl, `${home.name}, ${translated(home, "role")}`, "portrait-image")
     : '<div class="portrait-placeholder" aria-label="Portrait placeholder"></div>';
@@ -136,7 +143,7 @@ function renderHero(content) {
   return `
     <section class="hero" id="home">
       <div class="hello-pill">${safe(translated(home, "greeting"))}</div>
-      <h1 class="hero-heading">${safe(text("iAm"))} <span class="name">${safe(home.name)}</span>,<br />${safe(translated(home, "role"))}</h1>
+      <h1 class="hero-heading">${safe(text("iAm"))} <span class="name">${name}</span><br />${safe(translated(home, "role"))}</h1>
       <div class="hero-grid">
         <div class="hero-quote reveal"><span class="quote-mark">&ldquo;</span>${safe(translated(home, "quote"))}</div>
         <div class="portrait-stage reveal">
@@ -390,16 +397,25 @@ function renderProjectDetail(content) {
 function setupNavigation() {
   const toggle = document.querySelector(".menu-toggle");
   const lists = [...document.querySelectorAll(".nav-list")];
+  const setOpen = (open) => {
+    toggle?.setAttribute("aria-expanded", String(open));
+    toggle?.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+    if (toggle) toggle.innerHTML = iconMenu(open);
+    lists.forEach((list) => list.classList.toggle("open", open));
+  };
   toggle?.addEventListener("click", () => {
     const open = toggle.getAttribute("aria-expanded") !== "true";
-    toggle.setAttribute("aria-expanded", String(open));
-    toggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
-    lists.forEach((list) => list.classList.toggle("open", open));
+    setOpen(open);
   });
   document.querySelectorAll(".nav-link").forEach((link) => link.addEventListener("click", () => {
-    lists.forEach((list) => list.classList.remove("open"));
-    toggle?.setAttribute("aria-expanded", "false");
+    setOpen(false);
   }));
+  document.querySelector(".site-header")?.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && toggle?.getAttribute("aria-expanded") === "true") {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
 }
 
 function renderCurrentPage() {

@@ -264,11 +264,12 @@ export async function loadContentRecord(token = "") {
   if (token && !rows.length) throw new Error(missingSiteMessage);
   const original = rows[0]?.content || structuredClone(demoContent);
   const previousImportVersion = original.indonesianImportVersion;
+  const previousEnglishDefaultVersion = original.portfolioEnglishDefaultVersion;
   const content = normalizeContent(original);
   return {
     content,
     updatedAt: rows[0]?.updated_at || "",
-    preparedTranslations: content.indonesianImportVersion !== previousImportVersion,
+    preparedTranslations: content.indonesianImportVersion !== previousImportVersion || content.portfolioEnglishDefaultVersion !== previousEnglishDefaultVersion,
   };
 }
 

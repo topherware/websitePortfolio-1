@@ -69,7 +69,7 @@ Projects can be marked as homepage highlights, certificates support issuer and p
 
 ## Imported Indonesian portfolio copy
 
-`portfolio-indonesian-data.js` contains the Indonesian translation of Chris's public portfolio content scanned on October 6, 2026, including 12 projects, 24 experiences, and 12 certificates. `portfolio-indonesian.js` imports that copy when the matching portfolio record is loaded. It checks the original English values and prior Indonesian values, preserves subsequent editor changes, enables ID/EN, and initially selects Indonesian. Other portfolio owners and demo content are unaffected.
+`portfolio-indonesian-data.js` contains the Indonesian translation of Chris's public portfolio content scanned on October 6, 2026, including 12 projects, 24 experiences, and 12 certificates. `portfolio-indonesian.js` imports that copy when the matching portfolio record is loaded. It checks the original English values and prior Indonesian values, preserves subsequent editor changes, enables ID/EN, and initially selects English. An additional one-time settings migration restores English for imports previously saved with an Indonesian default. Other portfolio owners and demo content are unaffected.
 
 The translation is bundled with the site so it is visible without a database write. After an administrator signs in, the editor marks the prepared import as unsaved; **Save changes** stores it in Supabase using the existing revision check. The saved import marker prevents subsequent loads from overriding language preferences or copy edits. Indonesian skills and testimonial attributions can also be edited in the CMS. No public or unauthenticated database update is performed.
 

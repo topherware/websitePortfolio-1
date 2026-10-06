@@ -44,10 +44,10 @@ for (const scope of ["project", "experience"]) groups.push({
     key, before: source.categoryTranslations[scope]?.[key] ?? null, value,
   })),
 });
-translated.site.languages = { ...source.site.languages, enabled: true, defaultLanguage: "id" };
+translated.site.languages = { ...source.site.languages, enabled: true, defaultLanguage: "en" };
 groups.push({ path: ["site", "languages"], fields: [
   { key: "enabled", before: source.site.languages.enabled, value: true },
-  { key: "defaultLanguage", before: source.site.languages.defaultLanguage, value: "id" },
+  { key: "defaultLanguage", before: source.site.languages.defaultLanguage, value: "en" },
 ] });
 const version = "chris-indonesian-2026-10-06";
 translated.indonesianImportVersion = version;

@@ -25,7 +25,7 @@ test("imports Indonesian copy and fixes stale EASE template without changing Eng
   assert.doesNotMatch(content.projects[0].descriptionId, /pemesanan|pembayaran/);
   assert.equal(content.projects[0].title, "EASE: Easing Anxiety Supporting Each");
   assert.deepEqual(content.projects[0].gallery, ["/assets/ease/1.png"]);
-  assert.deepEqual(content.site.languages, { enabled: true, defaultLanguage: "id" });
+  assert.deepEqual(content.site.languages, { enabled: true, defaultLanguage: "en" });
 });
 
 test("preserves later source edits and custom Indonesian translations", () => {
@@ -58,4 +58,17 @@ test("saved imports are idempotent and keep subsequent language preferences", ()
   const before = structuredClone(content);
   applyIndonesianTranslations(content);
   assert.deepEqual(content, before);
+});
+
+test("restores English for a previously saved Indonesian-default import without replacing copy edits", () => {
+  const content = applyIndonesianTranslations(original());
+  delete content.portfolioEnglishDefaultVersion;
+  content.site.languages.defaultLanguage = "id";
+  content.home.roleId = "Terjemahan yang telah diedit";
+  applyIndonesianTranslations(content);
+  assert.equal(content.site.languages.defaultLanguage, "en");
+  assert.equal(content.home.roleId, "Terjemahan yang telah diedit");
+  content.site.languages.defaultLanguage = "id";
+  applyIndonesianTranslations(content);
+  assert.equal(content.site.languages.defaultLanguage, "id");
 });

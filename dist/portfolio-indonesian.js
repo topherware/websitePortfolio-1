@@ -2,7 +2,15 @@ import { indonesianBundle } from "./portfolio-indonesian-data.js";
 
 // Import only the scanned portfolio. Subsequent editor changes take precedence.
 export function applyIndonesianTranslations(content) {
-  if (content?.home?.name !== indonesianBundle.owner.name || content?.contact?.email !== indonesianBundle.owner.email || content.indonesianImportVersion === indonesianBundle.version) return content;
+  if (content?.home?.name !== indonesianBundle.owner.name || content?.contact?.email !== indonesianBundle.owner.email) return content;
+  const applyEnglishDefault = () => {
+    if (content.portfolioEnglishDefaultVersion !== 1) {
+      if (content.site?.languages) content.site.languages.defaultLanguage = "en";
+      content.portfolioEnglishDefaultVersion = 1;
+    }
+    return content;
+  };
+  if (content.indonesianImportVersion === indonesianBundle.version) return applyEnglishDefault();
   const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
   for (const group of indonesianBundle.groups) {
     let target = group.path.reduce((object, key) => object?.[key], content);
@@ -16,5 +24,5 @@ export function applyIndonesianTranslations(content) {
     }
   }
   content.indonesianImportVersion = indonesianBundle.version;
-  return content;
+  return applyEnglishDefault();
 }

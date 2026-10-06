@@ -33,7 +33,9 @@ try {
     const page = await context.newPage();
     await page.setViewportSize({ width, height: 900 });
     await page.goto("http://127.0.0.1:4173/", { waitUntil: "networkidle" });
-    await page.locator('.language-switch--id').waitFor();
+    await page.locator('.language-switch--en').waitFor();
+    assert.equal(await page.locator("html").getAttribute("lang"), "en");
+    await page.locator('[data-language="id"]').click();
     assert.equal(await page.locator("html").getAttribute("lang"), "id");
     assert.match(await page.locator(".hero-heading").textContent(), /Manajer Produk/);
     const normalized = await page.evaluate(async () => (await import("/cms.js")).loadContent());
