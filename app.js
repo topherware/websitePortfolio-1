@@ -22,12 +22,12 @@ const uiText = {
   en: {
     issuerNotSet: "Issuer not set", yearNotSet: "Year not set", collaborator: "Collaborator", portfolioUnavailable: "Portfolio unavailable", loadingPortfolio: "Loading portfolio",
     viewMore: "View more", showMore: "Show more", showAll: "Show all", showLess: "Show less",
-    iAm: "I am", projectHighlight: "Project highlight", highlightTitle: "Three projects,<br /><span class=\"accent\">one clear focus</span>", highlightCopy: "A quick look at the work that best represents my approach to product thinking, interaction, and visual craft.", experienceTitle: "My <span class=\"accent\">work experience</span>", selectedPortfolio: "Selected portfolio", projectsTitle: "Work built for<br /><span class=\"accent\">real outcomes</span>", projectsCopy: "A focused selection of product systems, interfaces, and digital experiences shaped around clarity and measurable value.", caseStudy: "Case study", viewProject: "View project", professionalDevelopment: "Professional development", collaborationNotes: "Collaboration notes", openConversation: "Open for conversation", navigation: "Navigation", contact: "Contact", preferEmail: "Prefer email?", present: "Present", visitProject: "Visit project", challenge: "The challenge", descriptionLabel: "Project description", storyEyebrow: "Case study notes", storyTitle: "Description & challenge", backPortfolio: "Back to portfolio", projectNotFound: "Project not found", projectUnavailable: "This project is unavailable or has not been published.",
+    iAm: "I am", projectHighlight: "Project highlight", highlightTitle: "Three projects,<br /><span class=\"accent\">one clear focus</span>", highlightCopy: "A quick look at the work that best represents my approach to product thinking, interaction, and visual craft.", experienceTitle: "My <span class=\"accent\">work experience</span>", selectedPortfolio: "Selected portfolio", projectsTitle: "Work built for<br /><span class=\"accent\">real outcomes</span>", projectsCopy: "A focused selection of product systems, interfaces, and digital experiences shaped around clarity and measurable value.", caseStudy: "Case study", viewProject: "View project", professionalDevelopment: "Professional development", collaborationNotes: "Collaboration notes", openConversation: "Open for conversation", navigation: "Navigation", contact: "Contact", preferEmail: "Prefer email?", menuEmail: "Drop me a line at", menuPhone: "Or give me a call at", present: "Present", visitProject: "Visit project", challenge: "The challenge", descriptionLabel: "Project description", storyEyebrow: "Case study notes", storyTitle: "Description & challenge", backPortfolio: "Back to portfolio", projectNotFound: "Project not found", projectUnavailable: "This project is unavailable or has not been published.",
   },
   id: {
     issuerNotSet: "Penerbit belum diisi", yearNotSet: "Tahun belum diisi", collaborator: "Rekan kerja", portfolioUnavailable: "Portofolio tidak tersedia", loadingPortfolio: "Memuat portofolio",
     viewMore: "Lihat lebih banyak", showMore: "Tampilkan lebih banyak", showAll: "Tampilkan semua", showLess: "Tampilkan lebih sedikit",
-    iAm: "Saya", projectHighlight: "Sorotan proyek", highlightTitle: "Tiga proyek,<br /><span class=\"accent\">satu fokus jelas</span>", highlightCopy: "Pilihan karya yang paling mewakili pendekatan saya terhadap pemikiran produk, interaksi, dan visual.", experienceTitle: "Pengalaman <span class=\"accent\">kerja saya</span>", selectedPortfolio: "Portofolio pilihan", projectsTitle: "Karya untuk<br /><span class=\"accent\">hasil nyata</span>", projectsCopy: "Pilihan sistem produk, antarmuka, dan pengalaman digital yang dibangun untuk kejelasan dan nilai yang terukur.", caseStudy: "Studi kasus", viewProject: "Lihat proyek", professionalDevelopment: "Pengembangan profesional", collaborationNotes: "Catatan kolaborasi", openConversation: "Terbuka untuk berdiskusi", navigation: "Navigasi", contact: "Kontak", preferEmail: "Lebih suka email?", present: "Sekarang", visitProject: "Kunjungi proyek", challenge: "Tantangan", descriptionLabel: "Deskripsi proyek", storyEyebrow: "Catatan studi kasus", storyTitle: "Deskripsi & tantangan", backPortfolio: "Kembali ke portofolio", projectNotFound: "Proyek tidak ditemukan", projectUnavailable: "Proyek ini tidak tersedia atau belum dipublikasikan.",
+    iAm: "Saya", projectHighlight: "Sorotan proyek", highlightTitle: "Tiga proyek,<br /><span class=\"accent\">satu fokus jelas</span>", highlightCopy: "Pilihan karya yang paling mewakili pendekatan saya terhadap pemikiran produk, interaksi, dan visual.", experienceTitle: "Pengalaman <span class=\"accent\">kerja saya</span>", selectedPortfolio: "Portofolio pilihan", projectsTitle: "Karya untuk<br /><span class=\"accent\">hasil nyata</span>", projectsCopy: "Pilihan sistem produk, antarmuka, dan pengalaman digital yang dibangun untuk kejelasan dan nilai yang terukur.", caseStudy: "Studi kasus", viewProject: "Lihat proyek", professionalDevelopment: "Pengembangan profesional", collaborationNotes: "Catatan kolaborasi", openConversation: "Terbuka untuk berdiskusi", navigation: "Navigasi", contact: "Kontak", preferEmail: "Lebih suka email?", menuEmail: "Kirim pesan ke", menuPhone: "Atau hubungi saya di", present: "Sekarang", visitProject: "Kunjungi proyek", challenge: "Tantangan", descriptionLabel: "Deskripsi proyek", storyEyebrow: "Catatan studi kasus", storyTitle: "Deskripsi & tantangan", backPortfolio: "Kembali ke portofolio", projectNotFound: "Proyek tidak ditemukan", projectUnavailable: "Proyek ini tidak tersedia atau belum dipublikasikan.",
   },
 };
 
@@ -109,7 +109,8 @@ function renderBrand(site) {
   return `<a class="brand" href="index.html#home" aria-label="${safe(site.name)} home">${logo}<span>${safe(site.name)}</span></a>`;
 }
 
-function renderHeader(site, detail = false) {
+function renderHeader(content, detail = false) {
+  const { site, contact = {} } = content;
   const navigation = Array.isArray(site.navigation) ? site.navigation : [];
   const normalized = navigation.map((item) => ({
     ...item,
@@ -127,7 +128,25 @@ function renderHeader(site, detail = false) {
         <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">${iconMenu()}</button>
       </nav>
       ${languageSwitch}
-    </header>`;
+    </header>
+    ${renderMobileMenu(normalized, contact)}`;
+}
+
+function renderMobileMenu(navigation, contact) {
+  const phoneHref = contact.phone ? `tel:${contact.phone.replace(/[^+\d]/g, "")}` : "";
+  const links = navigation.map((item, index) => `<li style="--i:${index}"><a href="${safeUrl(item.href) || "#"}">${safe(translated(item, "label"))}</a></li>`).join("");
+  const details = [
+    contact.email ? `<a class="mobile-menu-detail" href="${safe(`mailto:${contact.email}`)}"><span>${safe(text("menuEmail"))}</span>${safe(contact.email)}</a>` : "",
+    phoneHref ? `<a class="mobile-menu-detail" href="${safe(phoneHref)}"><span>${safe(text("menuPhone"))}</span>${safe(contact.phone)}</a>` : "",
+  ].join("");
+  return `
+    <div class="mobile-menu" id="mobile-menu" inert>
+      <span class="mobile-menu-wipe" aria-hidden="true"></span>
+      <nav class="mobile-menu-panel" aria-label="Mobile navigation">
+        <ul class="mobile-menu-links">${links}</ul>
+        ${details ? `<div class="mobile-menu-contact">${details}</div>` : ""}
+      </nav>
+    </div>`;
 }
 
 function renderHero(content) {
@@ -342,7 +361,7 @@ function renderHome(content) {
   document.title = content.site.name;
   document.querySelector('meta[name="description"]')?.setAttribute("content", translated(content.site, "description") || "Portfolio");
   app.innerHTML = [
-    renderHeader(content.site),
+    renderHeader(content),
     "<main>",
     renderHero(content),
     renderHighlight(content),
@@ -370,13 +389,13 @@ function renderProjectDetail(content) {
   const project = (content.projects || []).filter(isPublished).find((item) => item.slug === slug);
   if (!project) {
     document.title = `${text("projectNotFound")} | ${content.site.name}`;
-    app.innerHTML = `${renderHeader(content.site, true)}<main class="project-detail"><div class="container"><div class="error-state"><h1>${safe(text("projectNotFound"))}</h1><p>${safe(text("projectUnavailable"))}</p><a class="button" href="index.html#projects">${safe(text("backPortfolio"))}</a></div></div></main>${renderFooter(content)}`;
+    app.innerHTML = `${renderHeader(content, true)}<main class="project-detail"><div class="container"><div class="error-state"><h1>${safe(text("projectNotFound"))}</h1><p>${safe(text("projectUnavailable"))}</p><a class="button" href="index.html#projects">${safe(text("backPortfolio"))}</a></div></div></main>${renderFooter(content)}`;
     return;
   }
   document.title = `${translated(project, "title")} | ${content.site.name}`;
   const gallery = (project.gallery || []).filter(cleanUrl);
   app.innerHTML = `
-    ${renderHeader(content.site, true)}
+    ${renderHeader(content, true)}
     <main class="project-detail">
       <div class="container">
         <section class="project-detail-hero reveal"><p class="eyebrow">${safe(categoryLabel(content, "project", project.category))}</p><h1>${safe(translated(project, "title"))}</h1><p>${safe(translated(project, "description"))}</p>${cleanUrl(project.projectUrl) ? `<a class="button" href="${safeUrl(project.projectUrl)}" target="_blank" rel="noopener">${safe(text("visitProject"))} ${iconArrow()}</a>` : ""}</section>
@@ -396,26 +415,29 @@ function renderProjectDetail(content) {
 
 function setupNavigation() {
   const toggle = document.querySelector(".menu-toggle");
-  const lists = [...document.querySelectorAll(".nav-list")];
+  const menu = document.querySelector(".mobile-menu");
   const setOpen = (open) => {
     toggle?.setAttribute("aria-expanded", String(open));
     toggle?.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
     if (toggle) toggle.innerHTML = iconMenu(open);
-    lists.forEach((list) => list.classList.toggle("open", open));
+    menu?.classList.toggle("open", open);
+    menu?.toggleAttribute("inert", !open);
+    document.body.classList.toggle("menu-open", open);
   };
+  setOpen(false);
   toggle?.addEventListener("click", () => {
     const open = toggle.getAttribute("aria-expanded") !== "true";
     setOpen(open);
   });
-  document.querySelectorAll(".nav-link").forEach((link) => link.addEventListener("click", () => {
+  document.querySelectorAll(".nav-link, .mobile-menu a").forEach((link) => link.addEventListener("click", () => {
     setOpen(false);
   }));
-  document.querySelector(".site-header")?.addEventListener("keydown", (event) => {
+  document.onkeydown = (event) => {
     if (event.key === "Escape" && toggle?.getAttribute("aria-expanded") === "true") {
       setOpen(false);
       toggle.focus();
     }
-  });
+  };
 }
 
 function renderCurrentPage() {

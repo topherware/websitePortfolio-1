@@ -369,6 +369,116 @@ img {
   height: 22px;
 }
 
+.mobile-menu {
+  --menu-ease: cubic-bezier(0.76, 0, 0.24, 1);
+  position: fixed;
+  z-index: 19;
+  inset: 0;
+  display: none;
+  visibility: hidden;
+  pointer-events: none;
+  transition: visibility 0s linear 900ms;
+}
+
+.mobile-menu.open {
+  visibility: visible;
+  pointer-events: auto;
+  transition-delay: 0s;
+}
+
+.mobile-menu-wipe,
+.mobile-menu-panel {
+  position: absolute;
+  inset: 0;
+  clip-path: circle(0% at 50% 100%);
+  transition: clip-path 650ms var(--menu-ease);
+}
+
+/* Open: orange wipe leads, cream follows. Close: cream retracts first, orange trails. */
+.mobile-menu-wipe {
+  background: var(--orange);
+  transition-delay: 200ms;
+}
+
+.mobile-menu-panel {
+  display: flex;
+  flex-direction: column;
+  padding: 110px 28px max(32px, env(safe-area-inset-bottom));
+  overflow-y: auto;
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.mobile-menu.open .mobile-menu-wipe,
+.mobile-menu.open .mobile-menu-panel {
+  clip-path: circle(150% at 50% 100%);
+}
+
+.mobile-menu.open .mobile-menu-wipe {
+  transition-delay: 0s;
+}
+
+.mobile-menu.open .mobile-menu-panel {
+  transition-delay: 180ms;
+}
+
+.mobile-menu-links {
+  display: grid;
+  flex: 1;
+  align-content: center;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.mobile-menu-links li,
+.mobile-menu-contact {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+
+.mobile-menu.open .mobile-menu-links li,
+.mobile-menu.open .mobile-menu-contact {
+  opacity: 1;
+  transform: none;
+  transition: opacity 400ms ease, transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(480ms + var(--i, 6) * 60ms);
+}
+
+.mobile-menu-links a {
+  font-size: clamp(1.8rem, 8vw, 2.4rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  transition: color var(--ease);
+}
+
+.mobile-menu-links a:hover,
+.mobile-menu-links a:focus-visible {
+  color: var(--orange-deep);
+}
+
+.mobile-menu-contact {
+  display: grid;
+  gap: 20px;
+}
+
+.mobile-menu-detail {
+  display: grid;
+  gap: 2px;
+  padding-left: 14px;
+  border-left: 2px solid var(--orange);
+  font-size: 1.1rem;
+  overflow-wrap: anywhere;
+}
+
+.mobile-menu-detail span {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
 .name-last {
   white-space: nowrap;
 }
@@ -1812,44 +1922,15 @@ img {
   }
 
   .nav-list {
-    position: absolute;
-    top: calc(100% + 8px);
-    right: 0;
-    left: 0;
     display: none;
-    padding: 12px;
-    border-radius: 26px;
-    background: var(--ink);
-    box-shadow: var(--shadow);
   }
 
-  .nav-shell > .nav-list {
-    padding-left: 12px;
+  .mobile-menu {
+    display: block;
   }
 
-  .nav-list.open {
-    display: grid;
-  }
-
-  .nav-right .nav-list {
-    top: calc(100% + 164px);
-  }
-
-  .nav-shell > .nav-list.open {
-    padding-bottom: 0;
-    border-radius: 26px 26px 0 0;
-  }
-
-  .nav-shell > .nav-list.open ~ .nav-right .nav-list.open {
-    display: grid;
-    padding-top: 0;
-    border-radius: 0 0 26px 26px;
-    box-shadow: none;
-  }
-
-  .nav-link {
-    width: 100%;
-    justify-content: center;
+  body.menu-open {
+    overflow: hidden;
   }
 
   .hero {
@@ -2554,5 +2635,10 @@ img {
 
   .page-transition {
     display: none;
+  }
+
+  .mobile-menu,
+  .mobile-menu * {
+    transition-delay: 0s !important;
   }
 }

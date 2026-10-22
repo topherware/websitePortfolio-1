@@ -184,7 +184,7 @@ try {
 
     if (viewport.width <= 768) {
       await page.locator(".menu-toggle").click();
-      assert.equal(await page.locator(".nav-list.open").count(), 2, `${viewport.name}: mobile navigation did not open`);
+      assert.equal(await page.locator(".mobile-menu.open").count(), 1, `${viewport.name}: mobile navigation did not open`);
       await page.locator(".menu-toggle").click();
     }
 
