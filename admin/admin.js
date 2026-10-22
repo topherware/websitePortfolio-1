@@ -160,9 +160,11 @@ function modalUploadField(label, name, options = {}) {
     : multiple ? "No gallery photos saved" : "No photo saved";
   const action = multiple ? "Select photos" : "Select photo";
   const selectionHint = multiple ? "Choose more than one file at once" : "JPG, PNG, WebP, or GIF";
+  const savedPhotos = (options.photos || []).map((url, photoIndex) => `<figure class="modal-saved-photo"><img src="${safe(url)}" alt="Saved photo ${photoIndex + 1}" loading="lazy" /><button class="small-button danger" type="button" data-remove-photo="${photoIndex}">Remove</button></figure>`).join("");
 
   return `<div class="modal-upload-field${options.wide ? " field--wide" : ""}">
     <div class="modal-upload-heading"><div><label for="${safe(inputId)}">${safe(label)}</label><p>${safe(options.guidance || "Maximum 10 MB per photo.")}</p></div><span class="modal-file-status" data-file-status-for="${safe(name)}">${safe(savedStatus)}</span></div>
+    ${savedPhotos ? `<div class="modal-saved-photos">${savedPhotos}</div>` : ""}
     <label class="modal-upload-picker" for="${safe(inputId)}"><span class="modal-upload-icon" aria-hidden="true">+</span><span><strong>${safe(action)}</strong><small>${safe(selectionHint)}</small></span></label>
     <input class="modal-file-input" id="${safe(inputId)}" name="${safe(name)}" type="file" accept="image/jpeg,image/png,image/webp,image/gif" ${multiple ? "multiple" : ""} />
   </div>`;
@@ -617,7 +619,7 @@ function openEditor(type, index = -1) {
   const commonStatus = directSelect("Status", "status", current.status || "draft", ["draft", "published"]);
   let fields = "";
   if (type === "projects") {
-    fields = `${translatableDirectField("Title", "title", current)}${directField("Slug", "slug", current.slug)}${directSelect("Category", "category", current.category, (state.content.projectCategories || []).filter((category) => category !== "All"))}${commonStatus}${directField("Highlighted on homepage", "highlighted", current.highlighted, { type: "checkbox", wide: true, disabled: highlightLimitReached, helper: highlightLimitReached ? "3 of 3 selected. Remove another highlight before selecting this project." : `${highlightedCount} of 3 highlight slots selected.`, helperClass: "highlight-limit-note" })}${translatableDirectField("Description", "description", current, { type: "textarea", wide: true })}${translatableDirectField("Challenge", "challenge", current, { type: "textarea", wide: true })}${directField("Project URL", "projectUrl", current.projectUrl, { type: "url", wide: true })}${modalUploadField("Main project photo", "mainImageFile", { savedCount: current.mainImage ? 1 : 0, guidance: "Recommended 1600 x 1000 px. Selecting a new photo replaces the current one." })}${modalUploadField("Project thumbnail", "thumbnailFile", { savedCount: current.thumbnail ? 1 : 0, guidance: "Recommended 1200 x 900 px. Selecting a new photo replaces the current one." })}${modalUploadField("Project gallery", "galleryFiles", { multiple: true, wide: true, savedCount: Array.isArray(current.gallery) ? current.gallery.length : 0, guidance: "Select multiple photos together. New photos are added to the saved gallery." })}<p class="helper field--wide">Select up to three homepage highlights. Each uploaded photo can be up to 10 MB.</p>`;
+    fields = `${translatableDirectField("Title", "title", current)}${directField("Slug", "slug", current.slug)}${directSelect("Category", "category", current.category, (state.content.projectCategories || []).filter((category) => category !== "All"))}${commonStatus}${directField("Highlighted on homepage", "highlighted", current.highlighted, { type: "checkbox", wide: true, disabled: highlightLimitReached, helper: highlightLimitReached ? "3 of 3 selected. Remove another highlight before selecting this project." : `${highlightedCount} of 3 highlight slots selected.`, helperClass: "highlight-limit-note" })}${translatableDirectField("Description", "description", current, { type: "textarea", wide: true })}${translatableDirectField("Challenge", "challenge", current, { type: "textarea", wide: true })}${directField("Project URL", "projectUrl", current.projectUrl, { type: "url", wide: true })}${modalUploadField("Main project photo", "mainImageFile", { savedCount: current.mainImage ? 1 : 0, guidance: "Recommended 1600 x 1000 px. Selecting a new photo replaces the current one." })}${modalUploadField("Project thumbnail", "thumbnailFile", { savedCount: current.thumbnail ? 1 : 0, guidance: "Recommended 1200 x 900 px. Selecting a new photo replaces the current one." })}${modalUploadField("Project gallery", "galleryFiles", { multiple: true, wide: true, savedCount: Array.isArray(current.gallery) ? current.gallery.length : 0, photos: Array.isArray(current.gallery) ? current.gallery : [], guidance: "Select multiple photos together. New photos are added to the saved gallery. Use Remove to delete a saved photo." })}<p class="helper field--wide">Select up to three homepage highlights. Each uploaded photo can be up to 10 MB.</p>`;
   } else if (type === "certificates") {
     fields = `${translatableDirectField("Title", "title", current)}${translatableDirectField("Category", "category", current)}${directField("Issuer", "issuer", current.issuer)}${directField("Publication year", "year", current.year, { type: "number" })}${commonStatus}${modalUploadField("Certificate photo", "certificateFile", { wide: true, savedCount: current.imageUrl ? 1 : 0, guidance: "Recommended 1600 x 1100 px. Selecting a new photo replaces the current one." })}`;
   } else if (type === "testimonials") {
@@ -636,9 +638,20 @@ function openEditor(type, index = -1) {
     const list = button.closest("[data-repeatable]").querySelector(".repeatable-list");
     list.insertAdjacentHTML("beforeend", `<div class="repeatable-row"><input name="${safe(key)}[]" placeholder="${safe(button.dataset.placeholder)}" /><button class="small-button danger" type="button" data-remove-repeatable>Delete</button></div>`);
   }));
+  const removedPhotos = new Set();
   document.querySelector("#item-editor").addEventListener("click", (event) => {
     const button = event.target.closest("[data-remove-repeatable]");
     if (button) button.closest(".repeatable-row").remove();
+    const photoButton = event.target.closest("[data-remove-photo]");
+    if (!photoButton) return;
+    const photoIndex = Number(photoButton.dataset.removePhoto);
+    const removed = !removedPhotos.delete(photoIndex);
+    if (removed) removedPhotos.add(photoIndex);
+    photoButton.closest(".modal-saved-photo").classList.toggle("is-removed", removed);
+    photoButton.textContent = removed ? "Undo" : "Remove";
+    const status = document.querySelector("[data-file-status-for='galleryFiles']");
+    const kept = (current.gallery || []).length - removedPhotos.size;
+    if (status && !document.querySelector("#modal-galleryFiles")?.files.length) status.textContent = kept ? `${kept} saved photos` : "No gallery photos saved";
   });
   document.querySelectorAll(".modal-file-input").forEach((input) => input.addEventListener("change", () => {
     const files = [...(input.files || [])];
@@ -663,6 +676,7 @@ function openEditor(type, index = -1) {
     delete updated["descriptionsId[]"];
     delete updated["skills[]"];
     delete updated["skillsId[]"];
+    if (type === "projects" && Array.isArray(current.gallery)) updated.gallery = current.gallery.filter((_, photoIndex) => !removedPhotos.has(photoIndex));
     try {
       if (!state.demo && type === "projects") {
         const mainFile = event.currentTarget.elements.mainImageFile.files[0];
@@ -673,7 +687,7 @@ function openEditor(type, index = -1) {
         if (galleryFiles.length) {
           const uploaded = [];
           for (const file of galleryFiles) uploaded.push(await uploadFile(file, "projects/gallery", state.token));
-          updated.gallery = [...(current.gallery || []), ...uploaded];
+          updated.gallery = [...(Array.isArray(updated.gallery) ? updated.gallery : []), ...uploaded];
         }
       }
       if (!state.demo && type === "certificates") {
