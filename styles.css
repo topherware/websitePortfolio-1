@@ -1434,9 +1434,9 @@ img {
 }
 
 .site-footer {
-  margin: 0 24px 24px;
+  margin: 0;
   padding: 58px 54px 24px;
-  border-radius: 32px 32px 0 0;
+  border-radius: 0;
   background: #252626;
   color: white;
 }
@@ -2098,7 +2098,7 @@ img {
   .site-footer {
     margin: 0;
     padding: 48px 24px 22px;
-    border-radius: 28px 28px 0 0;
+    border-radius: 0;
   }
 
   .footer-top {
